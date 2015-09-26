@@ -1,0 +1,92 @@
+<html>
+[[$Head]]
+<body>
+[[$Header]]
+<!-- слайдер -->
+<div class="row section-main">
+    <section class="section-slider hidden-xs first">
+        <div class="container">
+            <div class="container slider">
+                <div class="row">
+                    <ul>
+                        [[!getResources:default=`Материалы на найдены`? &showHidden=`1` &tpl=`Slider` &parents=`62`
+                        &includeContent=`1` &limit=`100` &includeContent=`1` &includeTVs=`1` &processTVs=`1`]]
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-left">
+                <a onclick="prevSlide()">
+                    <span class="glyphicon glyphicon-chevron-left slider-arrow arrow-left"></span>
+                </a>
+            </div>
+            <div class="pull-right">
+                <a onclick="nextSlide()">
+                    <span class="glyphicon glyphicon-chevron-right slider-arrow arrow-right"></span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+</div>
+<div class="row section-main">
+    <section class="section-announce">
+        <div class="container">
+            <!-- События -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 event">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row text-center title">
+                        <img src="/ron/img/ornament_4.png"/>
+                        <a href="/index.php?id=32">
+                            <span class="text-uppercase">События</span>
+                        </a>
+                        <img class="hidden-xs" src="/ron/img/ornament_4.png"/>
+                    </div>
+                    <div class="row">
+                        [[!getResources:default=`Материалы на найдены`? &showHidden=`1`
+                        &tpl=`mainPageEvent`
+                        &parents=`32`
+                        &includeContent=`1`
+                        &limit=`2`
+                        &includeContent=`1`
+                        &includeTVs=`1`
+                        &processTVs=`1`]]
+                    </div>
+                </div>
+            </div>
+            <!-- Анонсы -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 announce">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row text-center title">
+                        <img src="/ron/img/ornament_5.png"/>
+                        <a href="/index.php?id=31">
+                            <span class="text-uppercase">Анонсы</span>
+                        </a>
+                        <img class="hidden-xs" src="/ron/img/ornament_5.png"/>
+                    </div>
+                    [[!getResources:default=`Материалы на найдены`? &showHidden=`1`
+                    &tpl=`mainPageAnnounce`
+                    &parents=`31`
+                    &includeContent=`1`
+                    &limit=`1`
+                    &includeContent=`1`
+                    &includeTVs=`1`
+                    &processTVs=`1`]]
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section>
+
+    <div class="container content">
+
+        [[*content]]
+
+    </div>
+</section>
+</div>
+[[$Footer]]
+[[$Footer_Script]]
+</body>
+</html>

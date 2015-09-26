@@ -1,0 +1,98 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 registration-form">
+    <div class="row">
+        <h3 class="text-uppercase text-left">Регистрация</h3>
+        <span class="text-left">Чтобы подать заявку на вступление в клуб, заполните все поля.</span>
+    </div>
+
+    <div class="registerMessage">[[+error.message]]</div>
+
+    <form class="form" action="[[~[[*id]]]]" method="post">
+        <input type="hidden" name="nospam:blank" value=""/>
+        <input type="hidden" name="statusMember" value="None"/>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <input id="username" class="form-control" type="text"
+                           name="username:required:minLength=3"
+                           value="[[+username]]" placeholder="Имя (ник)">
+                    <span class="error">[[+error.username]]</span>
+                </div>
+                <div class="form-group">
+                    <input id="fullname" class="form-control" type="text" name="fullname:required:minLength=3"
+                           value="[[+fullname]]"
+                           placeholder="Фамилия, Имя">
+                    <span class="error">[[+error.fullname]]</span>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker-dob">
+                        <input id="dob" type="text" class="form-control" name="dob"
+                               value="[[+dob:strtotime:date=`%d.%m.%Y`]]"
+                               placeholder="Дата рождения" onchange="">
+                                <span class="input-group-addon calendar-icon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                    </div>
+                    <span class="error">[[+error.dob]]</span>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker-dob').datetimepicker({
+                                format: 'DD.MM.YYYY',
+                                locale: 'ru'
+                            });
+                        });
+                    </script>
+                </div>
+
+                <div class="form-group div-gender">
+                    <input id="gender" type="hidden" name="gender:required" class="form-control" value="[[+gender]]"/>
+
+                    <label class="radio-inline">
+                        <input id="btn-male" type="radio" value="1" name="gender-radio">
+                        <span class="lbl padding-8">Мужчина</span>
+                    </label>
+                    <label class="radio-inline">
+                        <input id="btn-female" type="radio" value="2" name="gender-radio">
+                        <span class="lbl padding-8">Женщина</span>
+                    </label>
+                    <span class="error">[[+error.gender]]</span>
+                    <script>
+                        var btns = ['btn-male', 'btn-female'];
+                        var input = document.getElementById('gender');
+                        for (var i = 0; i < btns.length; i++) {
+                            document.getElementById(btns[i]).addEventListener('click', function () {
+                                input.value = this.value;
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <input id="email" class="form-control" type="email" name="email:email" value="[[+email]]"
+                           placeholder="E-mail">
+                    <span class="error">[[+error.email]]</span>
+                </div>
+
+                <div class="form-group">
+                    <input id="password" class="form-control" type="password"
+                           name="password:required:minLength=6" value="[[+password]]" placeholder="Пароль">
+                    <span class="error">[[+error.password]]</span>
+                </div>
+                <div class="form-group">
+                    <input id="city" class="form-control" type="text" name="city:required" value="[[+city]]"
+                           placeholder="Город">
+                    <span class="error">[[+error.city]]</span>
+                </div>
+                <div class="form-group">
+                    <div class="ron-club-submit">
+                        <input class="btn btn-ron-club form-control text-uppercase" type="submit"
+                               name="registerbtn"
+                               value="Отправить заявку" formmethod="post">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,224 @@
+/* блок регистрации */
+.section-club-in {
+    margin-bottom: 35px;
+}
+
+.section-club-in .element {
+    margin-top: 25px;
+}
+
+.section-club-in .error {
+    color: #f6eddc;
+    font-size: smaller;
+}
+
+.section-club-in .title a:hover,
+.section-club-in .title a:focus {
+    text-decoration: none;
+    color: #a42e36;
+    margin-top: 25px;
+}
+
+.section-club-in .registration-right {
+    background: url("/ron/img/club/background_registration-2.png") no-repeat top right;
+    height: 330px;
+}
+
+.section-club-in .registration {
+    background-color: #a42e36;
+    color: #FFFFFF;
+}
+
+.section-club-in .registration .registration-form,
+.section-club-in .registration .profile-mini {
+    background: url("/ron/img/ornament_2.png") no-repeat top right;
+}
+
+.section-club-in .column-2 {
+    -webkit-columns: 460px 2;
+    -moz-columns: 460px 2;
+    columns: 460px 2;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;
+}
+
+/* блок акций */
+
+.section-club-action {
+    background-color: #f6eddc;
+}
+
+.section-club-action .container.action {
+    background: url("/ron/img/club/background_action.jpg") no-repeat;
+    background-size: inherit;
+}
+
+.section-club-action .head-ornament {
+    background: url("/ron/img/ornament_5.png") repeat-x;
+    height: 25px;
+    width: 165px;
+}
+
+.section-club-action .slider {
+    margin-top: 25px;
+    height: 395px;
+}
+
+.section-club-action .slider .row-slider {
+    max-width: 990px;
+    margin-left: 20px;
+}
+
+.section-club-action .slider ul li {
+    background-color: #FFFFFF;
+    width: 280px;
+    height: 360px;
+    margin-left: 42px;
+    margin-right: 42px;
+}
+
+.section-club-action .slider ul li .slider-element-border {
+    border: 1px solid #f6eddc;
+    padding: 10px;
+    width: 260px;
+    height: 340px;
+    margin: 10px;
+}
+
+.section-club-action .slider ul li .clip {
+    background: url("/ron/img/ornament_3.png") no-repeat;
+    height: 27px;
+    width: 18px;
+}
+
+.first-element {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.section-club-action .slider ul li .action-image {
+    margin-left: 35px;
+}
+
+.section-club-action .slider ul li .action-image .image-border {
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    border-radius: 90px;
+    width: 170px;
+    height: 170px;
+}
+
+.section-club-action .slider ul li .action-image img {
+    height: 150px;
+    width: 150px;
+}
+
+.section-club-action .slider .slider-content {
+    height: 100px;
+    color: #333333;
+    font-weight: 700;
+}
+
+.section-club-action .slider .slider-link {
+    background-color: transparent;
+    font-weight: 700;
+    color: #a99481;
+    text-decoration: none;
+    padding-right: 0;
+    padding-left: 0;
+    border-bottom: 1px dashed #a99481;
+    cursor: hand;
+}
+
+.section-club-action .slider .slider-link:hover {
+    color: #a94442;
+    border-bottom: 1px dashed #a94442;
+
+}
+
+.section-club-action .slider-arrow {
+    top: -210px;
+}
+
+/* блок скидок*/
+
+.section-club-discount .head-ornament {
+    background: url("/ron/img/ornament_5.png") repeat-x;
+    height: 25px;
+    width: 165px;
+}
+
+.section-club-discount .first-element {
+    color: #a3a3a3;
+    margin-top: 75px;
+    border: 4px solid #f6eddc;
+}
+
+.section-club-discount .first-element .present-back {
+    background-color: #f6eddc;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    margin: 25px auto;
+}
+
+.section-club-discount .first-element .discount-text {
+    margin-bottom: 25px;
+}
+
+.section-club-discount .first-element .present {
+    height: 37px;
+    width: 37px;
+    background: url("/ron/img/club/present.png") no-repeat center;
+    padding: 29px;
+}
+
+.section-club-discount .element {
+    margin-bottom: 25px;
+}
+
+.section-club-discount .discount-size {
+    color: #a99481;
+    background-color: #f6eddc;
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+    padding-top: 16px;
+    padding-left: 10px;
+}
+
+.section-club-discount .image {
+    margin-bottom: 20px;
+}
+
+.section-club-discount .image img {
+    max-width: 285px;
+    max-height: 300px;
+}
+
+.icon {
+    box-shadow: 0 0 5px #90010b;
+    border-radius: 30px;
+    padding: 5px;
+    font-size: 12pt;
+}
+
+.icon.statusPlatinum1 {
+    background: #E5E4E2 linear-gradient(to top right, #E5E4E2 0%, #a1a1a0 36%, #484848 100%);
+}
+
+.icon.statusGold1 {
+    background: #B8860B linear-gradient(to top right, #fcc30b 0%, #B8860B 36%, #714b0b 100%);
+}
+
+.icon.statusCopper1 {
+    background: #8E402A linear-gradient(to top right, #d26b53 0%, #a45e4b 36%, #8E402A 100%);
+}
+
+.icon.statusNone {
+    background-color: #F6EDDC;
+}

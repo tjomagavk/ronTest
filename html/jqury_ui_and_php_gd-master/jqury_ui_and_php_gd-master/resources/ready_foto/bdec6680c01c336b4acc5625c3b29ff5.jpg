@@ -1,0 +1,377 @@
+<html>
+<head>
+
+    <!-- Jquery -->
+    <script src="ron/js/jquery/jquery-2.1.4.min.js"></script>
+
+    <script src="ron/js/moment.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="ron/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="ron/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap DatePicker -->
+    <script src="ron/bootstrap-datetimepicker-4.17.37-dist/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="ron/bootstrap-datetimepicker-4.17.37-dist/js/ru.js"></script>
+    <link href="ron/bootstrap-datetimepicker-4.17.37-dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+    <!-- Pictonic -->
+    <link rel="stylesheet" href="ron/pictonic/css/pictonic.css">
+    <!--[if lt IE 8]>
+    <script src="ron/pictonic/js/pictonic.min.js"></script><![endif]-->
+
+    <link href="ron/css/menu.css" rel="stylesheet">
+    <link href="ron/css/main.css" rel="stylesheet">
+    <link href="ron/css/footer.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Русские Оригинальные Напитки - Главная</title>
+    <base href="http://ron.tjomagavk.ru/" />
+</head>
+    <body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Кнопка раскрытия для мобильных -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Переключатель навигации</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ron.tjomagavk.ru/" title="Русские Оригинальные Напитки">
+                <img title="Русские Оригинальные Напитки" alt="Русские Оригинальные Напитки"
+                     src="ron/img/logo_menu.PNG">
+            </a>
+        </div>
+
+        <!-- Пункты меню -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+        <li class="dropdown">
+    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false"
+       href="index.php?id=3" title="Русские Оригинальные Напитки"  class="first">РОН</a><ul class="dropdown-menu" >
+    <li>
+    <a href="index.php?id=4" title="О русских напитках"  class="first">О русских напитках</a>
+</li>
+
+<li>
+    <a href="index.php?id=5" title="Классификатор напитков"  class="last">Классификатор напитков</a>
+</li>
+
+
+</ul>
+</li>
+
+<li class="dropdown">
+    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false"
+       href="index.php?id=6" title="О проекте" >О проекте</a><ul class="dropdown-menu" >
+    <li>
+    <a href="index.php?id=7" title="История"  class="first">История</a>
+</li>
+
+<li>
+    <a href="index.php?id=8" title="Стратегия" >Стратегия</a>
+</li>
+
+<li>
+    <a href="index.php?id=9" title="География" >География</a>
+</li>
+
+<li>
+    <a href="index.php?id=10" title="Менеджмент" >Менеджмент</a>
+</li>
+
+<li>
+    <a href="index.php?id=11" title="Партнеры" >Партнеры</a>
+</li>
+
+<li>
+    <a href="index.php?id=12" title="Контакты"  class="last">Контакты</a>
+</li>
+
+
+</ul>
+</li>
+
+<li class="dropdown">
+    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false"
+       href="index.php?id=13" title="Бренды" >Бренды</a><ul class="dropdown-menu" >
+    <li>
+    <a href="index.php?id=14" title="ДС"  class="first">ДС</a>
+</li>
+
+<li>
+    <a href="index.php?id=15" title="ХВ" >ХВ</a>
+</li>
+
+<li>
+    <a href="index.php?id=16" title="Троица" >Троица</a>
+</li>
+
+<li>
+    <a href="index.php?id=17" title="Каравай" >Каравай</a>
+</li>
+
+<li>
+    <a href="index.php?id=18" title="Доброягода"  class="last">Доброягода</a>
+</li>
+
+
+</ul>
+</li>
+
+<li class="dropdown">
+    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false"
+       href="index.php?id=19" title="События" >События</a><ul class="dropdown-menu" >
+    <li>
+    <a href="index.php?id=20" title="Новости"  class="first">Новости</a>
+</li>
+
+<li>
+    <a href="index.php?id=21" title="Пресс-релизы"  class="last">Пресс-релизы</a>
+</li>
+
+
+</ul>
+</li>
+
+<li class="dropdown">
+    <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false"
+       href="index.php?id=22" title="Клуб РОН"  class="last">Клуб РОН</a><ul class="dropdown-menu" >
+    <li>
+    <a href="index.php?id=24" title="События"  class="first">События</a>
+</li>
+
+<li>
+    <a href="index.php?id=25" title="Анонсы" >Анонсы</a>
+</li>
+
+<li>
+    <a href="index.php?id=26" title="Правила" >Правила</a>
+</li>
+
+<li>
+    <a href="index.php?id=47" title="Вступить"  class="last">Вступить</a>
+</li>
+
+
+</ul>
+</li>
+
+
+</ul>
+
+        </div>
+    </div>
+</nav>
+    
+        <div class="container">
+        
+            <section>
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <h1>Анонсы </h1>
+
+            <div class="well row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <span class="badge">26.02.2014</span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>
+                <span> Гастрономическое шоу на выставке ПродЭкспо</span>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+       Одной из главных изюминок недавно завершившейся выставки ПродЭкспо 2014 стало гастрономическое шоу, которое ежедневно устраивали на стенде «Деревенского самогона» повара из кулинарного театра Teatro del Gusto. Посетителям стенда предлагалось попробовать самогон с традиционными русскими закусками, выполненными на современный лад. Среди закусок были,&#8230;
+       <a href="index.php?id=40">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <span class="badge">23.02.2014</span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>
+                <span> Итоги выставки ПродЭкспо 2014</span>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+       Крупнейшая в России выставка продуктов питания и напитков ПродЭкспо закончилась, и можно подвести первые итоги. Благодаря разнообразной развлекательной программе и замечательному вкусу самого напитка стенд «Деревенского самогона» пользовался у посетителей выставки прямо-таки бешеным успехом, и вокруг него постоянно было не протолкнуться. Замечательное&#8230;
+       <a href="index.php?id=39">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <span class="badge">13.01.2014</span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>
+                <span> «Деревенский самогон» на ПродЭкспо 2014</span>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+       <p>Презентация традиционного русского напитка «Деревенский самогон» пройдет на крупнейшей в России выставке продуктов питания и напитков ПродЭкспо с 10 по 14 февраля 2014 года. На стенде 3С10 каждый желающий сможет попробовать 3 совершенно непохожих друг на друга вкуса, выпущенных под этой торговой маркой: «Деревенский самогон» из пшеницы, ржи и овса.</p>
+<p>Также&#8230;</p>
+       <a href="index.php?id=33">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+               <div class="row">
+			<a href="/index.php?id=31" href="#">
+				<span class="btn btn-danger form-control" role="button">Все анонсы</span>
+			</a>
+		</div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <h1>События </h1>
+
+            <div class="well row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            <a href="index.php?id=34">
+                <img class="img-circle" title="Европейцы призналы "Деревенский самогон" одним из лучших в мире." src="newsImg/IWSC2015-Silver-Medal-PNG.png"
+                     alt="" width="140" height="140"/>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+		<div class="row">
+			<span class="badge">
+				29.07.2015</span>
+		</div>
+            <h2>
+                <span> Европейцы призналы "Деревенский самогон" одним из лучших в мире.</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <p>Торговая марка «Деревенский самогон» стала обладателем двух медалей международного дегустационного конкурса International Wine & Spirit Competition в Англии. Таким образом, менее чем за полгода бренд признан на американском и европейском континентах одним из наиболее качественных мировых напитков. С учетом первого опыта участия в этом наиболее престижном&#8230;</p>
+        <a href="index.php?id=34" href="#">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            <a href="index.php?id=35">
+                <img class="img-circle" title=""Деревенский самогон" теперь можно купить и в "Ашане"" src="newsImg/m9.jpg"
+                     alt="" width="140" height="140"/>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+		<div class="row">
+			<span class="badge">
+				14.07.2015</span>
+		</div>
+            <h2>
+                <span> "Деревенский самогон" теперь можно купить и в "Ашане"</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <p>Торговая марка «Деревенский самогон» вошла в ассортимент гипермаркетов «Ашан» в России. В планах – расширение присутствия до полного ассортимента продукции во всех форматах сети на территории РФ. Соглашение о поставках на данном этапе предусматривает введение новой для сети торговой марки в ассортимент гипермаркетов «Ашан» на федеральном уровне.&#8230;</p>
+        <a href="index.php?id=35" href="#">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            <a href="index.php?id=37">
+                <img class="img-circle" title="Завершилась экспедиция "Вкусы Русского Севера"." src="newsImg/for_car.jpg"
+                     alt="" width="140" height="140"/>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+		<div class="row">
+			<span class="badge">
+				30.06.2015</span>
+		</div>
+            <h2>
+                <span> Завершилась экспедиция "Вкусы Русского Севера".</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <p>28 июня в Архангельске завершилась этнографическая экспедиция «Вкусы Русского Севера». За время поездки ее участники посетили около полусотни населенных пунктов на протяжении от Петрозаводска до Архангельска, а также нашли около 30 оригинальных рецептов домашних блюд и напитков. Некоторые из них лягут в основу новых торговых марок, которые станут&#8230;</p>
+        <a href="index.php?id=37" href="#">
+            <span class="btn btn-default pull-right" role="button">Читать далее »</span>
+        </a>
+    </div>
+</div>
+               <div class="row">
+			<a href="/index.php?id=32" href="#">
+				<span class="btn btn-danger form-control" role="button">Все события</span>
+			</a>
+		</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+        
+            
+            
+        </div>
+    
+    <footer class="panel-footer navbar-fixed-bottom row-fluid">
+    <div class="container">
+        <div class="col-xs-12 col-sm-3 .col-md-3 col-lg-3 text-center">
+            <span class="text-uppercase">Сайты ТМ</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 .col-md-6 col-lg-6 text-center">
+            ООО "Ар-Ви-Ай Трейд"<br/>
+            Телефон: +7 (499) 995-08-97<br/>
+            Факс: +7 (499) 995-08-97<br/>
+            Email: info@derevenski-samogon.com<br/>
+            127273, г. Москва, Березовая аллея, д. 5А, стр. 5<br/>
+        </div>
+        <div class="col-xs-12 col-sm-3 .col-md-3 col-lg-3 text-center">
+            <a href="http://www.vk.com" title="Мы в Вконтакте">
+                <span class="social icon-rus-vk-01"></span>
+            </a>
+            <a href="http://www.odnoklassniki.ru" title="Мы в одноклассниках">
+                <span class="social icon-odnoklassniki odnoklassniki"></span>
+            </a>
+            <a href="http://www.fb.com" title="Мы в FaceBook">
+                <span class="social icon-facebook"></span>
+            </a>
+        </div>
+    </div>
+</footer>
+    
+    </body>
+</html>

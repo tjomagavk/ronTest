@@ -1,0 +1,47 @@
+<html>
+[[$Head]]
+<script src="ron/club/resources/js/card.js"></script>
+<body>
+
+[[$Header]]
+
+<div class="container content">
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                <h2>
+                    <span> [[*pagetitle]]</span>
+                </h2>
+            </div>
+        </div>
+        [[*content]]
+
+        [[!PeopleGroup? &usergroup=`Члены клуба` &toPlaceholder=`users` &placeholderPrefix=`member.` &userTpl=`userTpl`
+        &getProfile=`1`]]
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>Количество: [[+member.userCount]]</h2>
+
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Имя пользователя</th>
+                <th>Дата рождения</th>
+                <th>Последние цифры карты пользователя</th>
+                <th>Отправить карту</th>
+            </tr>
+            </thead>
+            <tbody>
+            [[+users]]
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+[[$Footer]]
+[[$Footer_Script]]
+</body>
+</html>
