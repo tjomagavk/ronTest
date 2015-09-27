@@ -3,6 +3,19 @@ $(document).ready(function () {
     if (loginModal.find('.alert') && loginModal.find('.alert').size() > 0) {
         loginModal.modal();
     }
+    var editProfileModal = $('#editProfile');
+    if (editProfileModal.find('.error') && editProfileModal.find('.error').size() > 0) {
+        editProfileModal.modal();
+    }
+    var editProfilePhotoModal = $('#editProfilePhoto');
+    if (editProfilePhotoModal.find('.error') && editProfilePhotoModal.find('.error').size() > 0) {
+        editProfilePhotoModal.modal();
+    }
+    var changePasswordModal = $('#changePassword');
+    if (changePasswordModal.find('.error p') && changePasswordModal.find('.error p').html()) {
+        changePasswordModal.modal();
+    }
+
     if (isMobile) {
         $("header.desktop").remove();
         $("header.mobile").css({'display': 'block'});
@@ -24,51 +37,83 @@ $(document).ready(function () {
     createMainSlider();
 });
 
-$('document').ready(function () {
+/**
+ * Для стилизации загрузки файлов
+ */
+$(document).on('change', '.btn-file :file', function () {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+});
+/**
+ * Для стилизации загрузки файлов
+ */
+$(document).ready(function () {
+    $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
 
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if (input.length) {
+            input.val(log);
+        } else {
+            if (log) alert(log);
+        }
+
+    });
 });
 
-(function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-68120933-2', 'auto');
-ga('send', 'pageview');
-
-(function (d, w, c) {
-    (w[c] = w[c] || []).push(function () {
-        try {
-            w.yaCounter32699025 = new Ya.Metrika({
-                id: 32699025,
-                clickmap: true,
-                trackLinks: true,
-                accurateTrackBounce: true,
-                webvisor: true
-            });
-        } catch (e) {
-        }
-    });
-
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () {
-            n.parentNode.insertBefore(s, n);
-        };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else {
-        f();
+/**
+ * Вешаем слушателя на мужчину/женщину
+ * radio ids ['btn-male', 'btn-female']
+ * поле, уходящее на сервер id gender
+ */
+function genderListener() {
+    var btns = ['btn-male', 'btn-female'];
+    var input = document.getElementById('gender');
+    for (var i = 0; i < btns.length; i++) {
+        document.getElementById(btns[i]).addEventListener('click', function () {
+            input.value = this.value;
+            if (input.value == 1) {
+                $('#btn-male').prop('checked', true);
+                $('#btn-female').prop('checked', false);
+            } else {
+                $('#btn-male').prop('checked', false);
+                $('#btn-female').prop('checked', true);
+            }
+        });
     }
-})(document, window, "yandex_metrika_callbacks");
+}
+
+/**
+ * проверяем, выбран ли пол
+ * radio ids ['btn-male', 'btn-female']
+ * поле, уходящее на сервер id gender
+ * если 1 = btn-male, если 2 = btn-female
+ */
+function checkedGenderRadio() {
+    var gender = $('#gender').val();
+    if (gender) {
+        if (gender == 1) {
+            $('#btn-male').prop('checked', true);
+        } else {
+            $('#btn-female').prop('checked', true);
+        }
+    }
+}
+
+/**
+ * Конверстация даты рождения в timestamp unix
+ *
+ * Дата из поля с id = dobUser
+ * timestamp unix = dob
+ */
+function dobToMs() {
+    var dobUser = $('#dobUser').val();
+    if (dobUser) {
+        var dateArr = dobUser.split('.');
+        $('#dob').val(new Date(dateArr[2], dateArr[1] - 1, dateArr[0]).getTime() / 1000);
+    }
+}

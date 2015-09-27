@@ -1,0 +1,104 @@
+[[!Profile]]
+[[!+cp.successMessage]]
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+    <div class="row first">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+            <h3 class="font-weight-700">Ваш статус: <br/>
+                <span class="ron-color text-uppercase">[[$Profile.Status.Text]]</span></h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="ron-club-submit">
+                <a href="[[~85]]" class="btn btn-ron-club form-control text-uppercase">
+                    <span class="glyphicon glyphicon-envelope ron-color"></span>
+                    <span>Скидка</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="ron-club-submit">
+                <a href="[[~84]]" class="btn btn-ron-club form-control text-uppercase">
+                    <span class="glyphicon glyphicon-credit-card ron-color"></span>
+                    <span>Карта клуба</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            <h3 class="font-weight-700">Ваши персональные данные: </h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Имя, фамилия: </label>
+                    <input class="form-control " type="text" value="[[+fullname]]" disabled title=""/>
+                </div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input class="form-control " type="text" value="[[+email]]" disabled title=""/>
+                </div>
+                <div class="form-group">
+                    <label> Дата рождения: </label>
+                    <input class="form-control " type="text" value="[[+dob:date=`%d.%m.%Y`]]" disabled title="">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Пол: </label>
+                    <input class="form-control " type="text"
+                           value="[[+gender:is=`0`:then=`Не указан`]][[+gender:is=`1`:then=`Мужской`]][[+gender:is=`2`:then=`Женский`]]"
+                           disabled title=""/>
+                </div>
+                <div class="form-group">
+                    <label>Город: </label>
+                    <input class="form-control " type="text" value="[[+city]]" disabled title=""/>
+                </div>
+
+                <div class="form-group">
+                    <label>Пароль: </label>
+                    <a href="#changePassword" class="btn btn-ron-club form-control text-uppercase"
+                       data-toggle="modal"
+                       role="button">
+                        <span class="glyphicon glyphicon-pencil ron-color"></span>
+                        <span>Изменить пароль</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="ron-club-submit">
+                    <br/>
+                    <a href="#editProfile" class="btn btn-ron-club form-control text-uppercase" data-toggle="modal"
+                       role="button">
+                        <span class="glyphicon glyphicon-pencil ron-color"></span>
+                        <span>Редактировать</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center">
+            <div>
+                <a href="#editProfilePhoto" class="form-control text-uppercase avatar-link font-weight-700"
+                   data-toggle="modal" role="button">
+                    <img src="[[+photo:phpthumbof=`w=285&h=205`]]" alt="Аватар пользователя">
+
+                    <div class="cover-bg"></div>
+                    <span class="cover-title ron-color-light"><span class="glyphicon glyphicon-open"></span>Переклеить фотокарточку</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row text-center end">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        </div>
+    </div>
+</div>
+
+[[$Profile.ChangePassword]]
+[[$Profile.Edit]]
+[[$Profile.Edit.Photo]]

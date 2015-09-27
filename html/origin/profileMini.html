@@ -45,99 +45,343 @@
     <meta charset="UTF-8">
     <title>Русские Оригинальные Напитки - Главная</title>
     <base href="http://test.tjomagavk.ru/">
+    <style>.btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        background: red;
+        cursor: inherit;
+        display: block;
+    }
+    input[readonly] {
+        background-color: white !important;
+        cursor: text !important;
+    }</style>
 </head>
 
 <body>
+<script>
+    $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready( function() {
+        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+
+        });
+    });
+
+</script>
+<div class="col-lg-6 col-sm-6 col-12">
+    <h4>Input Groups</h4>
+    <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-primary btn-file">
+                        Browse&hellip; <input type="file" multiple>
+                    </span>
+                </span>
+        <input type="text" class="form-control" readonly>
+    </div>
+            <span class="help-block">
+                Try selecting one or more files and watch the feedback
+            </span>
+</div>
 <div class="row">
-    <section class="section-club-in">
+    <section>
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 registration">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profile-mini">
-                        <div class="row first">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <h3 class="font-weight-700"> Ваши данные </h3>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <span class="font-weight-700"> Личный кабинет </span>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profile-mini">
+                    <div class="row first">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <h3 class="font-weight-700">Ваш статус: <br>
+                <span class="ron-color text-uppercase">
+
+Мастер РОН
+
+
+</span></h3>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="ron-club-submit">
+                                <a href="index.php?id=85" class="btn btn-ron-club form-control text-uppercase">
+                                    <span class="glyphicon glyphicon-envelope ron-color"></span>
+                                    <span>Скидка</span>
+                                    <span class="glyphicon glyphicon-envelope ron-color"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label class="control-label">Имя, фамилия:
-                                        <input class="form-control " type="text"
-                                               value="Онищенко Артём" disabled>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label">Дата рождения:
-                                        <input class="form-control " type="text"
-                                               value="10.03.1989" disabled>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label class="control-label">Email: </label><br>
-                                    <span>tjomagavk@yandex.ru</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label">Город: </label><br>
-                                    <span>Москва</span>
-                                </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <div class="ron-club-submit">
+                                <a href="index.php?id=84" class="btn btn-ron-club form-control text-uppercase">
+                                    <span class="glyphicon glyphicon-credit-card ron-color"></span>
+                                    <span>Карта клуба</span>
+                                    <span class="glyphicon glyphicon-credit-card ron-color"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="row text-center end">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="ron-club-submit">
-                                    <a href="index.php?id=85" class="btn btn-ron-club form-control text-uppercase">
-                                        <span class="glyphicon glyphicon-envelope ron-color"></span>
-                                        <span>Получить скидку</span>
-                                        <span class="glyphicon glyphicon-envelope ron-color"></span>
-                                    </a>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                            <h3 class="font-weight-700">Ваши персональные данные: </h3>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="ron-club-submit">
+                                <br>
+                                <a href="#editProfile" class="btn btn-ron-club form-control text-uppercase"
+                                   data-toggle="modal" role="button">
+                                    <span class="glyphicon glyphicon-pencil ron-color"></span>
+                                    <span>Редактировать</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label>Имя, фамилия: </label>
+                                <input class="form-control " type="text" value="Онищенко Артём" disabled="" title="">
+                            </div>
+                            <div class="form-group">
+                                <label>Email: </label>
+                                <input class="form-control " type="text" value="tjomagavk@yandex.ru" disabled=""
+                                       title="">
+                            </div>
+                            <div class="form-group">
+                                <label> Дата рождения: </label>
+                                <input class="form-control " type="text" value="10.03.1989" disabled="" title="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label>Пол: </label>
+                                <input class="form-control " type="text" value="Мужской" disabled="" title="">
+                            </div>
+                            <div class="form-group">
+                                <label>Город: </label>
+                                <input class="form-control " type="text" value="Москва" disabled="" title="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Пароль: </label>
+                                <a href="#changePassword" class="btn btn-ron-club form-control text-uppercase"
+                                   data-toggle="modal" role="button">
+                                    <span class="glyphicon glyphicon-pencil ron-color"></span>
+                                    <span>Изменить пароль</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center">
+                            <div>
+                                <a href="#editProfilePhoto" class="form-control text-uppercase avatar-link font-weight-700"
+                                   data-toggle="modal" role="button">
+                                    <img  src="http://test.tjomagavk.ru/assets/components/phpthumbof/cache/image_102.5143faad68047114088a042c094081bb58.jpg"
+                                          alt="Аватар пользователя">
+                                    <div class="cover-bg"></div>
+
+                                    <span class="cover-title ron-color"><span class="glyphicon glyphicon-open"></span>Переклеить фотокарточку</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row text-center end">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="changePassword" class="modal fade" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close ron-color-light" data-dismiss="modal"
+                                        aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title ron-color-light">Редактирование</h4>
+                            </div>
+                            <div class="hidden error">
+
+                            </div>
+                            <div class="modal-body">
+                                <form class="callme" action="index.php?id=58" method="post">
+                                    <input type="hidden" name="nospam" value="">
+
+                                    <div class="form-group">
+                                        <label for="password_old" class="ron-color-light">Старый пароль: </label>
+                                        <input class="form-control " type="password" name="password_old"
+                                               id="password_old" value="">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password_new" class="ron-color-light">Новый пароль: </label>
+                                        <input class="form-control " type="password" name="password_new"
+                                               id="password_new" value="">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password_new_confirm" class="ron-color-light">Новый пароль еще
+                                            раз: </label>
+                                        <input class="form-control " type="password" name="password_new_confirm"
+                                               id="password_new_confirm" value="">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                            <div class="ron-club-submit">
+                                                <input type="submit" class="btn btn-ron-club text-uppercase"
+                                                       value="Сменить пароль" name="change-password" formmethod="post">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hidden-xs hidden-sm col-md-6 col-lg-6 registration-right">
+
+
+                <div id="editProfile" class="modal fade" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close ron-color-light" data-dismiss="modal"
+                                        aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title ron-color-light">Редактирование</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form action="index.php?id=58" method="post">
+                                    <div class="form-group">
+                                        <label class="ron-color-light">Имя, фамилия: </label>
+                                        <input class="form-control " type="text" value="Онищенко Артём" title=""
+                                               name="fullname:required">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input id="dob" type="hidden" class="form-control" name="dob:required">
+
+                                        <label class="ron-color-light">Дата рождения: </label>
+
+                                        <div class="input-group date" id="datetimepicker-dob">
+                                            <input id="dobUser" type="text" class="form-control" value="10.03.1989"
+                                                   placeholder="Дата рождения">
+                                <span class="input-group-addon calendar-icon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                                        </div>
+
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#datetimepicker-dob').datetimepicker({
+                                                    format: 'DD.MM.YYYY',
+                                                    locale: 'ru'
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="ron-color-light">Email: </label>
+                                        <input class="form-control " type="text" value="tjomagavk@yandex.ru" title=""
+                                               name="email:required:email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="gender" type="hidden" name="gender:required" class="form-control"
+                                               value="1">
+
+                                        <label class="radio-inline">
+                                            <input id="btn-male" type="radio" value="1">
+                                            <span class="lbl padding-8 ron-color-light">Мужчина</span>
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input id="btn-female" type="radio" value="2">
+                                            <span class="lbl padding-8 ron-color-light">Женщина</span>
+                                        </label>
+
+                                        <script>
+                                            genderListener();
+                                            checkedGenderRadio();
+                                        </script>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="ron-color-light">Город: </label>
+                                        <input class="form-control " type="text" value="Москва" title=""
+                                               name="city:required">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                            <div class="ron-club-submit">
+                                                <input type="submit" class="btn btn-ron-club text-uppercase"
+                                                       name="edit-profile" onclick="dobToMs()" value="Сохранить"
+                                                       formmethod="post">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row element">
-                <div class="column-2">
-                    <p>Клуб любителей русских оригинальных напитков (Клуб РОН) - место встреч и общения людей, готовых и
-                        желающих популяризировать русские кулинарные традиции, делиться ими с окружающими, принимать
-                        участие в мероприятиях клуба и иных мероприятиях, имеющих отношение к культуре и обычаям народов
-                        России. Участие в клубе является исключительно добровольным.</p>
 
-                    <p>Миссия и главная цель клуба - изменение отношения к традиционному русскому алкоголю, каковым
-                        является хлебное вино, самогон и прочие производные напитки, как с точки зрения исторической
-                        справедливости, так и с позиции культуры потребления алкоголя в целом.</p>
 
-                    <p>Вступив в клуб любителей русских оригинальных напитков (РОН), Вы не только узнаете много нового о
-                        традиционных напитках нашей страны, но и станете частью закрытого привилегированного сообщества,
-                        участники которого:</p>
-                    <ul>
-                        <li>первыми узнают об акциях и скидках;</li>
-                        <li>приглашаются на закрытые дегустации;</li>
-                        <li>принимают участие в презентациях и встречах с известными сомелье и экспертами в области
-                            напитков;
-                        </li>
-                        <li>в качестве&nbsp;<span lang="en-US">VIP</span>-гостей участвуют в мероприятиях клуба, как
-                            собственных, так и совместных, а это и концерты, и фестивали и другие праздники;
-                        </li>
-                        <li>получают бесплатные призы и подарки.</li>
-                    </ul>
-                    <p>(<a href="index.php?id=26"><em><span>Подробнее о Клубе</span></em></a>) – раздел «Правила»</p>
+                <div id="editProfilePhoto" class="modal fade" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close ron-color-light" data-dismiss="modal"
+                                        aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title ron-color-light">Редактирование</h4>
+                            </div>
+                            <div class="modal-body">
 
-                    <p>&nbsp;</p>
+                                <form action="index.php?id=58" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label class="ron-color-light">Выберите фото: </label>
+                                        <input type="file" name="photo">
 
-                    <p>ПРИСОЕДИНЯЙТЕСЬ И УЗНАЙТЕ, В ЧЕМ СОСТОИТ СИЛА НАШИХ ТРАДИЦИЙ!</p>
-
-                    <p align="RIGHT"><em>Компания «Русские оригинальные напитки».</em></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                            <div class="ron-club-submit">
+                                                <input type="submit" class="btn btn-ron-club text-uppercase"
+                                                       name="edit-profile-photo-btn" onclick="dobToMs()"
+                                                       value="Сохранить" formmethod="post">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -222,3 +222,43 @@
 .icon.statusNone {
     background-color: #F6EDDC;
 }
+
+/* Стилизация для смены фото */
+/* Ссылки и обёртка для картинок */
+.avatar-link {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 215px;
+}
+
+/* Общие стили для перекрывающих элементов */
+.cover-bg,
+.cover-title {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 180px;
+}
+
+/* Отображаем перекрывающие элементы при наведении на блок с картинкой */
+.avatar-link:hover .cover-bg,
+.avatar-link:hover .cover-title {
+    display: block;
+}
+
+/* Полупрозрачный перекрывающий голубой фон */
+.cover-bg {
+    background: #a94442;
+    -khtml-opacity: .6;
+    -moz-opacity: .6;
+    opacity: .6;
+}
+
+/* Перекрывающий текст */
+.cover-title {
+    padding-top: 7px;
+}

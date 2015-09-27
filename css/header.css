@@ -131,7 +131,7 @@ header .menu-language {
 
 header .header-profile {
     color: #f6eddc;
-    margin-top: 40px;
+    margin-top: 45px;
     line-height: 0;
 }
 
@@ -160,12 +160,6 @@ header .header-profile a:focus {
 header .header-profile a:hover span,
 header .header-profile a:focus span {
     color: #f6eddc;
-}
-
-header .header-profile {
-    color: #f6eddc;
-    margin-top: 40px;
-    line-height: 0;
 }
 
 header .header-profile .icon {

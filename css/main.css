@@ -6,8 +6,23 @@ section.first {
     margin-top: 205px;
 }
 
-#login .modal-content {
+.modal-content {
     background-color: #8e3239;
+}
+
+#editProfile .calendar-icon {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #a42e36;
+    color: #FFFFFF;
+    border-color: #ac4147;
+}
+
+#editProfile .error,
+#changePassword .error,
+#editProfilePhoto .error {
+    color: #f6eddc;
+    font-size: smaller;
 }
 
 .error {
@@ -98,6 +113,53 @@ input[type = 'password'],
 input[type = 'email'] {
     border-radius: 25px;
     border-color: #fa3838;
+}
+.form-control[disabled],
+input[disabled] {
+    cursor: auto;
+}
+/* стилизация загрузки файлов */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+.browse,
+.browse:active {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background-color: #a42e36;
+    color: #FFFFFF;
+    border-color: #ac4147;
+    height: 34px;
+}
+
+.browse:hover,
+.browse:hover:active,
+.browse:focus {
+    background-color: #ac4147;
+    color: #FFFFFF;
+    border-color: #a42e36;
+}
+
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
 }
 
 /* стилизация радио */

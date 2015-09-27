@@ -47,7 +47,3 @@
 .profile-mini .end {
     margin-bottom: 25px;
 }
-
-.profile-mini input[disabled] {
-    cursor: auto;
-}
