@@ -208,11 +208,11 @@
 }
 
 .icon.statusPlatinum1 {
-    background: #E5E4E2 linear-gradient(to top right, #E5E4E2 0%, #a1a1a0 36%, #484848 100%);
+    background: #E5E4E2 linear-gradient(to top right, #E5E4E2 0%, #484848 36%, #a1a1a0 100%);
 }
 
-.icon.statusGold1 {
-    background: #B8860B linear-gradient(to top right, #fcc30b 0%, #B8860B 36%, #714b0b 100%);
+.icon.statusSilver1 {
+    background: #B8860B linear-gradient(to top right, #E5E4E2 0%, #a1a1a0 36%, #484848 100%);
 }
 
 .icon.statusCopper1 {

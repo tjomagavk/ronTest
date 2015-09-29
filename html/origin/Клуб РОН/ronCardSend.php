@@ -20,18 +20,18 @@ $individualCod = generateCodeById($userId);
 
 
 $dirClub = "./ron";
-echo $avatar . '<br/>';
-
-$filelist = array();
-if ($handle = opendir("./assets/uploads/temp/")) {
-    while ($entry = readdir($handle)) {
-        echo $entry . '<br/>';
-
-    }
-    closedir($handle);
-}
-
-$avatar = "./assets/uploads/temp/le1x3v7zni8.jpg";
+//echo $avatar . '<br/>';
+//
+//$filelist = array();
+//if ($handle = opendir("./assets/uploads/temp/")) {
+//    while ($entry = readdir($handle)) {
+//        echo $entry . '<br/>';
+//
+//    }
+//    closedir($handle);
+//}
+//
+//$avatar = "./assets/uploads/temp/le1x3v7zni8.jpg";
 
 $message;
 if (!newCard($individualCod, $dirClub, $profile)) {
@@ -51,8 +51,8 @@ function newCard($individualCode, $dirClub, $profile)
 //    $img = $avatar;
     $font = $dirClub . '/club/resources/fonts/HALTER__.ttf'; // если нужно, то отбрасываем ревизию
 //    echo $font . '<br/>';
-    echo $userAvatar . '<br/>';
-    echo $dirClub . '<br/>';
+//    echo $userAvatar . '<br/>';
+//    echo $dirClub . '<br/>';
     $img = current(explode("?", $img)); // если нужно, то отбрасываем ревизию
     $size = getimagesize($img);
     $width = $size[1]; // высота
