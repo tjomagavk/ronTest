@@ -43,7 +43,32 @@ exit;
 
 function newCard($individualCode, $dirClub, $profile)
 {
-    $img = $dirClub . '/club/resources/images/Copper1.png';
+    $cardName = '';
+    $rgbAvatar = ''; //цвет заливки фона под аватаром
+    $fontColorMain = ''; // цвет текста
+    $fontColorBack = ''; // цвет под текстом(тень)
+    $statusMember = $profile->get('extended')['statusMember'];
+    if (strstr($statusMember, 'Copper')) {
+        $cardName = 'Copper.png';
+        $rgbAvatar = 0x90451e;
+        $fontColorBack = 0x4f2912;
+        $fontColorMain = 0xf8ba44;
+    } else if (strstr($statusMember, 'Silver')) {
+        $cardName = 'Silver.png';
+        $rgbAvatar = 0x666b74;
+        $fontColorBack = 0x5f5f60;
+        $fontColorMain = 0x868686;
+    } else if (strstr($statusMember, 'Platinum')) {
+        $cardName = 'Platinum.png';
+        $rgbAvatar = 0x666b74;
+        $fontColorBack = 0x4f2912;
+        $fontColorMain = 0xf8ba44;
+    }
+    if (empty($cardName)) {
+        return false;
+    }
+
+    $img = $dirClub . '/club/resources/images/' . $cardName;
     $fullName = $profile->get('fullname');
     $email = $profile->get('email');
 
@@ -73,8 +98,8 @@ function newCard($individualCode, $dirClub, $profile)
     // накладываем на основной фон карту
     imagecopy($mainImg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
 
-    addAvatar($mainImg, $userAvatar);
-    addText($mainImg, $font, $profile, $individualCode, $fullName);
+    addAvatar($mainImg, $userAvatar, $rgbAvatar);
+    addText($mainImg, $font, $fontColorMain, $fontColorBack, $profile, $individualCode, $fullName);
 
     $pathForReady = $dirClub . '/club/cardMember/';
 
@@ -95,15 +120,16 @@ function newCard($individualCode, $dirClub, $profile)
  * Функция добавляет аватар пользователя на изображение
  * @param $mainImg
  * @param $userAvatar
+ * @param $rgbBack
  * @return bool
  */
-function addAvatar($mainImg, $userAvatar)
+function addAvatar($mainImg, $userAvatar, $rgbBack)
 {
     //создаем подложку под изображение
     $defaultWidthAvatar = 216; // ширина
     $defaultHeightAvatar = 259; // высота
     $mainAvatarImg = imagecreatetruecolor($defaultWidthAvatar, $defaultHeightAvatar);
-    $rgbAvatar = 0x90451e; //цвет заливки фона
+    $rgbAvatar = $rgbBack; //цвет заливки фона
     imagefill($mainAvatarImg, 0, 0, $rgbAvatar); //заливаем его коричневым
 
     $userAvatar = current(explode("?", $userAvatar)); // если нужно, то отбрасываем ревизию
@@ -134,27 +160,25 @@ function addAvatar($mainImg, $userAvatar)
  * Добавляем текст да картинку: имя пользователя, номер карты, дату
  * @param $mainImg
  * @param $font
+ * @param $fontColorMain
+ * @param $fontColorBack
  * @param $profile
  * @param $individualCode
  * @param $fullName
  */
-function addText($mainImg, $font, $profile, $individualCode, $fullName)
+function addText($mainImg, $font, $fontColorMain, $fontColorBack, $profile, $individualCode, $fullName)
 {
-
     $dob = $profile->get('dob');
     $fullNameTranslate = transliterate($fullName);
 
-    $black = 0x4f2912; //цвет заливки фона
-    $gold = 0xf8ba44; //цвет заливки фона
+    imagefttext($mainImg, 28, 0, 62, 262, $fontColorBack, $font, $individualCode);
+    imagefttext($mainImg, 28, 0, 60, 260, $fontColorMain, $font, $individualCode);
 
-    imagefttext($mainImg, 28, 0, 62, 262, $black, $font, $individualCode);
-    imagefttext($mainImg, 28, 0, 60, 260, $gold, $font, $individualCode);
+    imagefttext($mainImg, 20, 0, 62, 312, $fontColorBack, $font, $fullNameTranslate);
+    imagefttext($mainImg, 20, 0, 60, 310, $fontColorMain, $font, $fullNameTranslate);
 
-    imagefttext($mainImg, 20, 0, 62, 312, $black, $font, $fullNameTranslate);
-    imagefttext($mainImg, 20, 0, 60, 310, $gold, $font, $fullNameTranslate);
-
-    imagefttext($mainImg, 20, 0, 62, 372, $black, $font, date("m/Y", $dob));
-    imagefttext($mainImg, 20, 0, 60, 370, $gold, $font, date("m/Y", $dob));
+    imagefttext($mainImg, 20, 0, 62, 372, $fontColorBack, $font, date("m/Y", $dob));
+    imagefttext($mainImg, 20, 0, 60, 370, $fontColorMain, $font, date("m/Y", $dob));
 }
 
 function sendMail($mainImg, $email, $fullName, $profile)
