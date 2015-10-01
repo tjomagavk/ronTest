@@ -43,301 +43,105 @@
     <script src="blob:http%3A//ron.tjomagavk.ru/242f023b-a809-4d04-af27-f3cc5da457e5" charset="UTF-8"></script>
 </head>
 <body>
-<div class="text-uppercase text-center navbar-fixed-top font-weight-700" style="background-color: rgba(172, 65, 71, 0.7); color: rgba(172, 65, 71, 1);"><span class="glyphicon glyphicon-warning-sign"></span> <span> Тестовая версия </span> <span class="glyphicon glyphicon-warning-sign"></span> </div>
-
-<script type="text/javascript">
-</script>
-<div class="container">
-    <div class="row">
-        <h1 class="text-uppercase text-left ">
-            <span class="ron-color font-weight-700">Клуб РОН</span>
-        </h1>
-    </div>
+<div class="row">
+    олоо
 </div>
-<section class="section-club-in">
+<footer class="panel-footer row-fluid">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 registration">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 registration-form">
-                    <div class="row">
-                        <h3 class="text-uppercase text-left">Регистрация</h3>
-                        <span class="text-left">Чтобы подать заявку на вступление в клуб, заполниете все поля.</span>
-                    </div>
-                    <form class="form" action="index.php?id=47" method="post">
-
-                        <input type="hidden" name="nospam:blank" value="">
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <input id="username" class="form-control" type="text"
-                                           name="username:required:minLength=3"
-                                           value="" placeholder="Имя (ник)">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="fullname" class="form-control" type="text" name="fullname" value=""
-                                           placeholder="Фамилия, Имя">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group date" id="datetimepicker-dob">
-                                        <input id="dob" type="text" class="form-control" name="dob:required`" value=""
-                                               placeholder="Дата рождения">
-                                <span class="input-group-addon calendar-icon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                                    </div>
-                                    <span class="error"></span>
-                                    <script type="text/javascript">
-                                        $(function () {
-                                            $('#datetimepicker-dob').datetimepicker({
-                                                format: 'DD.MM.YYYY',
-                                                locale: 'ru'
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group div-gender">
-                                    <input id="gender" type="hidden" name="gender:required" class="form-control"/>
-
-                                    <label class="radio-inline">
-                                        <input id="btn-male" type="radio" value="1" name="gender-radio">
-                                        <span class="lbl padding-8">Мужчина</span>
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input id="btn-female" type="radio" value="2" name="gender-radio">
-                                        <span class="lbl padding-8">Женщина</span>
-                                    </label>
-                                    <span class="error"></span>
-                                    <script>
-                                        var btns = ['btn-male', 'btn-female'];
-                                        var input = document.getElementById('gender');
-                                        for (var i = 0; i < btns.length; i++) {
-                                            document.getElementById(btns[i]).addEventListener('click', function () {
-                                                input.value = this.value;
-                                            });
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <input id="email" class="form-control" type="email" name="email:email" value=""
-                                           placeholder="E-mail">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="password" class="form-control" type="password"
-                                           name="password:required:minLength=6" value="" placeholder="Пароль">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="city" class="form-control" type="text" name="city:required" value=""
-                                           placeholder="Город">
-                                    <span class="error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <div class="ron-club-submit">
-                                        <input class="btn btn-ron-club form-control text-uppercase" type="submit"
-                                               name="registerbtn"
-                                               value="Отправить заявку" formmethod="post">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center saved">
+            <div class="ron-logo">
             </div>
-            <div class="hidden-xs hidden-sm col-md-6 col-lg-6 registration-right">
+            <span class="text-uppercase ron-color-light font-weight-700 ron-logo-text">Русские Оригинальные Напитки</span>
+
+            <div>
+                    <span class="age ron-color-light line-height-3">
+                        <span>18+</span>
+                    </span>
             </div>
+            <span class="ron-color-light small">© 2015 Все права защищены</span>
         </div>
-        <div class="row element">
-            <div class="column-2">
-                <h4>Преимущества вступления в клуб РОН</h4>
-                <br/>
-                признанным одним из 50-ти лучших мировых ресторанов, теперь можно за
-                рюмочкой-другой «Деревенского самогона». Напиток не просто подадут по
-                вашей просьбе, но и преподнесут в качестве комплимента к одному из
-                фирменныхблюд.<br/>
-                Несмотря на очевидную русскую тематику, «Белый кролик» никак нельзя назвать
-                рестораном местных кулинарных традиций – здесь впервые русская кухня звучит
-                в унисон с последними гастрономическими трендами, а русские продукты
-                поднимаются на высоту признанных деликатесов. Именно это, наряду с
-                превосходным обслуживанием, и позволило «Белому кролику» войти в топ-50
-                мировых ресторанов, разместившись в его середине (23-е место) и, кстати, став
-                первым рестораном, попавших в рейтинг сразу на такую высокую позицию.
-                Репутация заведений, где подают «Деревенский самогон» важна чрезвычайно, а
-                потому сотрудничество с «Белым кроликом» - не просто веха в жизни торговой
-                марки. Это, в том числе возможность продемонстрировать органичное сочетание
-                традиционного русского крепкого алкогольного напитка с блюдами не только
-                традиционными, но и инновационными (по крайней мере, борщ с жареными
-                карасями традиционным ну никак не назовешь).Итак, рады сообщить, что ржаной
-                и овсяной «Деревенский самогон» теперь – в меню одного из лучших ресторанов
-
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section-club-action">
-    <div class="container action">
-        <div class="container">
-            <div class="row">
-                <h2 class="text-uppercase text-left font-weight-700">Участвуй в акциях</h2>
-            </div>
-            <div class="row">
-                <div class="head-ornament"></div>
-            </div>
-        </div>
-        <div class="container slider">
-            <div class="row row-slider">
-                <ul style="margin-left: 0;">
-                    <li class="slider0">
-                        <div class="row slider-element">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="slider-element-border">
-                                    <div class="row first-element">
-                                        <div class="clip clip-left pull-left"></div>
-                                        <div class="clip clip-right pull-right"></div>
-                                        <div class="action-image">
-                                            <div class="image-border">
-                                                <img class="img-circle" title="Рожь" src="slider/roj.png" width="150"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="slider-content text-uppercase">
-                                            <span> с 4 - 18 сентября</span><br/>
-                                            <span>пройдет конкурс</span><br/>
-                                            <span class="ron-color x-large">“Осень 2015”</span>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <a class="slider-link text-uppercase">Принять участие</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden navigation">
-
-                        </div>
+        <div class="hidden-xs hidden-sm col-md-6 col-lg-6 text-left">
+            <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                <a href="#"><span class="text-uppercase ron-color-light">РОН</span> </a>
+                <ul>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">О русских напитках</span> </a>
                     </li>
-                    <li class="slider1">
-                        <div class="row slider-element">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="slider-element-border">
-                                    <div class="row first-element">
-                                        <div class="clip clip-left pull-left"></div>
-                                        <div class="clip clip-right pull-right"></div>
-                                        <div class="action-image">
-                                            <div class="image-border">
-                                                <img class="img-circle" title="Рожь" src="slider/roj.png" width="150"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="slider-content text-uppercase">
-                                            <span> с 4 - 18 сентября</span><br/>
-                                            <span>пройдет конкурс</span><br/>
-                                            <span class="ron-color x-large">“Осень 2015”</span>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <a class="slider-link text-uppercase">Принять участие</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden navigation">
-
-                        </div>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">О проекте</span> </a>
                     </li>
-                    <li class="slider2">
-                        <div class="row slider-element">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="slider-element-border">
-                                    <div class="row first-element">
-                                        <div class="clip clip-left pull-left"></div>
-                                        <div class="clip clip-right pull-right"></div>
-                                        <div class="action-image">
-                                            <div class="image-border">
-                                                <img class="img-circle" title="Рожь" src="slider/roj.png" width="150"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="slider-content text-uppercase">
-                                            <span> с 4 - 18 сентября</span><br/>
-                                            <span>пройдет конкурс</span><br/>
-                                            <span class="ron-color x-large">“Осень 2015”</span>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <a class="slider-link text-uppercase">Принять участие</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden navigation">
-
-                        </div>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Стратегия</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">География</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">О русских напитках</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Партнеры</span> </a>
                     </li>
                 </ul>
             </div>
-            <div class="pull-left">
-                <a onclick="prevSlide()">
-                    <span class="glyphicon glyphicon-chevron-left slider-arrow arrow-left"></span>
-                </a>
+            <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                <a href="#"><span class="text-uppercase ron-color-light">Клуб РОН</span> </a>
+                <ul>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Вступить</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Привилегии</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">События</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Анонсы</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Устав</span> </a>
+                    </li>
+                </ul>
             </div>
-            <div class="pull-right">
-                <a onclick="nextSlide()">
-                    <span class="glyphicon glyphicon-chevron-right slider-arrow arrow-right"></span>
-                </a>
+            <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                <a href="#"><span class="text-uppercase ron-color-light">Бренды</span> </a>
+                <ul>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Деревенский самогон</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">ХВ</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Троица</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Каравай</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="ron-color-light small">Доброягода</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-left">
+            <div class="row">
+                <a href="#"><span class="text-uppercase ron-color-light">Контакты</span> </a><br/>
+                <span class="ron-color-light font-weight-700 small line-height-3">+7 (499) 995-08-97</span><br/>
+                <span class="ron-color-light small">127273, г. Москва</span><br/>
+                <span class="ron-color-light small">Березовая аллея, д. 5А, стр. 5</span><br/>
+                <a href="mailto:info@derevenski-samogon.com" class=""><span class="ron-color-light small line-height-3">info@derevenski-samogon.com</span></a><br/>
+            </div>
+
+            <div class="row social">
+                <a href="http://www.vk.com" class="vkontakte" title="Мы в Вконтакте"></a>
+                <a href="http://www.odnoklassniki.ru" class="odnoklassniki" title="Мы в одноклассниках"></a>
+                <a href="http://www.fb.com" class="facebook" title="Мы в FaceBook"></a>
             </div>
         </div>
     </div>
-</section>
-
-<section class="section-club-discount">
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <h2 class="text-uppercase text-left font-weight-700">Получи скидку</h2>
-            </div>
-            <div class="row">
-                <div class="head-ornament"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 first-element">
-                    <div>
-                        <div class="present-back">
-                            <div class="present"></div>
-                        </div>
-                        <div class="text-center discount-text">
-                            <span>
-                                Принимай участие в акциях и получи скидку на оригинальную продукцию РОН.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 element">
-                    <div class="pull-left small font-weight-700 discount-size">-15%</div>
-                    <div class="image">
-                        <img class=title="Рожь" src="slider/roj.png"
-                             alt="">
-                    </div>
-                    <div class="text-center text-uppercase">
-                        <span class="font-weight-700 ron-color-dark-gray">Домашний самогон</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+</footer>
 
 </body>
 </html>

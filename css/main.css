@@ -71,6 +71,10 @@ section.first {
     font-size: -webkit-xxx-large;
 }
 
+.line-height-3 {
+    line-height: 3;
+}
+
 .ron-club-submit {
     border: 1px solid;
     border-radius: 25px;
@@ -114,10 +118,12 @@ input[type = 'email'] {
     border-radius: 25px;
     border-color: #fa3838;
 }
+
 .form-control[disabled],
 input[disabled] {
     cursor: auto;
 }
+
 /* стилизация загрузки файлов */
 .btn-file {
     position: relative;

@@ -1,8 +1,70 @@
 .social {
-    font-size: xx-large;
-    text-shadow: 0px 5px 10px #aaa;
+    margin-top: 15px;
 }
 
-.odnoklassniki {
-    color: #F2720C;
+.social a {
+    margin-left: 11px;
+    display: block;
+    float: left;
+    width: 38px;
+    height: 38px;
+    background: url(/ron/img/social.png) no-repeat;
+}
+
+.social a:hover {
+    opacity: 0.4;
+}
+
+.social a.vkontakte {
+    background-position: -36px 0;
+}
+
+.social a.odnoklassniki {
+    background-position: -73px 0;
+}
+
+.social a.facebook {
+    background-position: 1px 0;
+}
+
+.panel-footer {
+    background: url("/ron/img/ornament_6.png") repeat-x #a42e36;
+    border: 0;
+}
+
+footer .ron-logo {
+    background: url("/ron/img/header/logo.png") no-repeat center;
+    background-size: 145px;
+    float: none;
+    height: 65px;
+    margin-bottom: 20px;
+}
+
+
+footer .ron-logo-text {
+    word-spacing: 10000px;
+}
+
+footer ul {
+    display: inline-block;
+    padding-left: 5px;
+    list-style: none;
+}
+
+footer ul li {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+footer .container {
+    margin-top: 45px;
+}
+
+footer .age {
+    box-shadow: 0 0 30px #90010b;
+    background-color: #7c2a1a;
+    border-radius: 30px;
+    padding: 8px;
+    line-height: 3;
+    letter-spacing: -3px;
 }
