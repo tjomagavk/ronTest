@@ -1,0 +1,41 @@
+<html>
+[[$Head]]
+<body>
+
+[[$Header]]
+
+
+<div class="row section-main">
+    <section class="first">
+        <div class="container news">
+            <div class="row title">
+                <h2>
+                    <span>[[*pagetitle]]</span>
+                </h2>
+                <img class="hidden-xs" src="/ron/img/ornament_5.png">
+                <img class="hidden-xs" src="/ron/img/ornament_5.png">
+                <img class="hidden-xs" src="/ron/img/ornament_5.png">
+            </div>
+            <div class="row content">
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                    <img title="Гастрономическое шоу на выставке ПродЭкспо"
+                         src="[[*newsMainImage:phpthumbof=`w=285&h=205&zc=1`]]" >
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                    <div class="row">
+                        <span class="font-weight-700">[[*publishedon:strtotime:date=`%d`]] [[*publishedon:strtotime:date=`%b`]] [[*publishedon:strtotime:date=`%Y`]]</span>
+                    </div>
+                    <div class="row">
+                        [[*content]]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+[[$Footer]]
+[[$Footer_Script]]
+</body>
+</html>

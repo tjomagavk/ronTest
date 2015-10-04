@@ -253,3 +253,14 @@
     }
 }
 
+/* Отдельная статья*/
+.news .row.title,
+.news .row.content {
+    margin-bottom: 50px;
+}
+
+.container.news {
+    background: url("/ron/img/ornament_8.png") no-repeat top right;
+    height: 560px;
+}
+
