@@ -19,6 +19,7 @@ $(document).ready(function () {
     if (isMobile) {
         $("header.desktop").remove();
         $("header.mobile").css({'display': 'block'});
+        $("section.first").removeClass("first");
         removeMainSlider();
     } else {
         $("header.mobile").remove();
@@ -117,3 +118,61 @@ function dobToMs() {
         $('#dob').val(new Date(dateArr[2], dateArr[1] - 1, dateArr[0]).getTime() / 1000);
     }
 }
+
+/**
+ * Для ajax-пагинации
+ */
+$(document).on('as_complete', document, function (e, d) {
+    $(".pagin." + d["key"]).append(d["pagination"]);
+    upPage();
+    $(document).on('click', '.' + d["key"] + ' .pagination a', function (e) {
+        upPage();
+        e.preventDefault();
+        var url = $(this).attr('href');
+        //console.log(url);
+        $.post(url, {as_action: d["key"]}, function (response) {
+            if (typeof response.output !== "undefined") {
+                $('.ajax-snippet#' + d["key"]).html(response.output);
+                $(".pagin." + d["key"]).html(response.pagination);
+            }
+        }, "json");
+    });
+});
+
+/**
+ * Уходим вверх страницы
+ */
+function upPage() {
+    $("body,html").animate({scrollTop: 0}, 500);
+}
+//
+///**
+// * Для ajax-пагинации
+// */
+//$(document).ready(function () {
+//    var active = $(document).find('.changeNews .active').attr('href');
+//    if (active && active == '#event') {
+//        $(document).find('event').removeClass(hidden)
+//    }
+//    if (changePasswordModal.find('.error p') && changePasswordModal.find('.error p').html()) {
+//        changePasswordModal.modal();
+//    }
+//    $(".pagin." + d["key"]).append(d["pagination"]);
+//    $(document).on('click', '.' + d["key"] + ' .pagination a', function (e) {
+//        e.preventDefault();
+//        var url = $(this).attr('href');
+//        //console.log(url);
+//        $.post(url, {as_action: d["key"]}, function (response) {
+//            if (typeof response.output !== "undefined") {
+//                $('.ajax-snippet#' + d["key"]).html(response.output);
+//                $(".pagin." + d["key"]).html(response.pagination);
+//            }
+//        }, "json");
+//    });
+//});
+$(document).ready(function () {
+    var loc = window.location.hash;
+    if (loc) {
+        $(document).find(".changeNews li a[href$='" + loc + "']").click();
+    }
+});

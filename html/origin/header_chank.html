@@ -1,0 +1,74 @@
+<div class="row header">
+    <div class="text-uppercase text-center navbar-fixed-top font-weight-700"
+         style="background-color: rgba(172, 65, 71, 0.7); color: #f6eddc;"><span
+            class="glyphicon glyphicon-warning-sign"></span> <span> Тестовая версия </span> <span
+            class="glyphicon glyphicon-warning-sign"></span></div>
+
+    <header class="desktop" style="display: none;">
+        <div class="container">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <a class="navbar-brand" href="[[++site_url]]" title="[[++site_name]]"></a><br/>
+
+                <p class="hidden-xs hidden-sm text-uppercase navbar-brand-text">[[++site_name]]</p>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <div class="row pull-right hidden-xs hidden-sm menu-language">
+                    <ul>
+                        <li>
+                            <div>
+                                <a href="#" title="Русская версия" class="active text-uppercase">
+                                    <div>
+                                        <p>ru</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" title="English version" class="text-uppercase">
+                                <div>
+                                    <p>eng</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                [[!+modx.user.id:isnotloggedin:is=`1`:then=`
+                <div class="pull-right hidden-xs hidden-sm menu-language">
+                    <div class="ron-club-submit">
+                        <a href="#login" role="button" class="btn btn-ron-club form-control text-uppercase"
+                           data-toggle="modal">
+                            <span>Вход</span>
+                        </a>
+                    </div>
+                </div>
+                `:else=`
+                [[!Login? &loginTpl=`Auth.Login` &logoutTpl=`Auth.Logout.Header` &errTpl=`Auth.Login.Error`
+                &actionKey=`action` &loginKey=`login` &logoutResourceId=`1`]]
+                `]]
+
+                <div class="row pull-right">
+                    [[$Navigation]]
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header class="mobile" style="display: none;">
+        [[$NavigationMobile]]
+    </header>
+</div>
+
+<div id="login" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close ron-color-light" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title ron-color-light">Авторизация</h4>
+            </div>
+            <div class="modal-body">
+                [[!Login? &loginTpl=`Auth.Login` &logoutTpl=`Auth.Logout` &errTpl=`Auth.Login.Error`
+                &actionKey=`action` &loginKey=`login` &logoutResourceId=`1`]]
+            </div>
+        </div>
+    </div>
+</div>

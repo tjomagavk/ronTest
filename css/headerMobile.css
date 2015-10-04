@@ -2,6 +2,7 @@ header.mobile {
     margin-top: -40px;
     height: 55px;
     width: 100%;
+    line-height: 0;
 }
 
 header.mobile .navbar-brand {
@@ -15,13 +16,13 @@ header.mobile .navbar-header {
 }
 
 header.mobile .navbar-collapse {
-    margin-top: -55px;
-    width: 105%;
     overflow: hidden;
     float: left;
-    margin-left: -16px;
     text-align: left;
     background-color: #a42e36;
+    margin-left: -17px;
+    width: 106%;
+    margin-top: -31px;
 }
 
 header.mobile .navbar-collapse .dropdown {

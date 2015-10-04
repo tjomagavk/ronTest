@@ -1,0 +1,75 @@
+<html>
+[[$Head]]
+<body>
+
+[[$Header]]
+
+<div class="row section-main">
+    <section class="first change-event-announce">
+        <div class="container content">
+            <div class="row">
+                <div class="changeNews text-center">
+                    <ul class="nav nav-tabs text-uppercase font-weight-700">
+                        <li class="">
+                            <a data-toggle="tab" href="#event" aria-expanded="false">
+                                <span>События</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#announce" aria-expanded="true">
+                                <span>Анонсы</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-event-announce">
+        <div class="container content">
+            <div class="row">
+                <div class="tab-content">
+                    <div id="event" class="tab-pane fade">
+                        [[!AjaxSnippet?
+                        &snippet=`pdoPage`
+                        &elementClass=`modSnippet`
+                        &element=`getResources`
+                        &showHidden=`1`
+                        &tpl=`News`
+                        &limit=`3`
+                        &includeTVs=`1`
+                        &processTVs=`1`
+                        &parents=`31`
+                        &hideContainers=`1`
+                        &pageLimit=`5`
+                        &page=`[[!Ajax.Resources.UriPage]]`
+                        &wrapper=`tpl.ajax`
+                        ]]
+                    </div>
+                    <div id="announce" class="tab-pane fade">
+                        [[!AjaxSnippet?
+                        &snippet=`pdoPage`
+                        &elementClass=`modSnippet`
+                        &element=`getResources`
+                        &showHidden=`1`
+                        &tpl=`News`
+                        &limit=`3`
+                        &includeTVs=`1`
+                        &processTVs=`1`
+                        &parents=`32`
+                        &hideContainers=`1`
+                        &pageLimit=`5`
+                        &page=`[[!Ajax.Resources.UriPage]]`
+                        &wrapper=`tpl.ajax`
+                        ]]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="row" style="margin-top: 50px;"></div>
+[[$Footer]]
+[[$Footer_Script]]
+</body>
+</html>

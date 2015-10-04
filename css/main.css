@@ -34,6 +34,11 @@ section.first {
     padding: 0;
 }
 
+.row.header {
+    margin: 0;
+    padding: 0;
+}
+
 .ron-color {
     color: #a94442;
 }
@@ -109,6 +114,99 @@ section a {
 section a:focus, section a:hover {
     color: #a42e36;
     text-decoration: none;
+}
+
+/* Стилизация вкладок */
+.nav-tabs > li, .nav-pills > li {
+    float: none;
+    display: inline-block;
+    *display: inline; /* ie7 fix */
+    zoom: 1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs,
+.nav-pills {
+    text-align: center;
+}
+
+ul.nav-tabs {
+    border: 0;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    padding: 5px 20px;
+    border: 1px solid #a42e36;
+    border-radius: 0;
+}
+
+.nav-tabs > li.active > a span,
+.nav-tabs > li.active > a:focus span,
+.nav-tabs > li.active > a:hover span {
+    color: #a42e36;
+    border-bottom: 1px dashed #a42e36;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover {
+    padding: 5px 20px;
+    border: 0;
+
+}
+
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover {
+    border-radius: 0;
+    border: 1px solid #a42e36;
+    background-color: #f6eddc;
+}
+
+.nav-tabs > li > a span {
+    color: #a18e7c;
+    border-bottom: 1px dashed #a18e7c;
+}
+
+.nav-tabs > li > a:focus span,
+.nav-tabs > li > a:hover span {
+    color: #a42e36;
+    border-bottom: 1px dashed #a42e36;
+}
+
+/* стилизация пагинации */
+
+.pagination > .active > a {
+    background-color: #a42e36;
+    border-radius: 20px;
+    border: none;
+}
+
+.pagination > .active > a:hover {
+    background-color: #a42e36;
+    border-radius: 20px;
+}
+
+.pagination > li > a {
+    color: #333333;
+    border: none;
+    background-color: transparent;
+}
+
+.pagination > li > a:hover {
+    background-color: #a42e36;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.pagination > .disabled > a,
+.pagination > .disabled > a:focus,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > span,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > span:hover {
+    border: none;
+    background-color: transparent;
 }
 
 /* стилизация полей ввода */
