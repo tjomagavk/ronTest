@@ -261,6 +261,66 @@
 
 .container.news {
     background: url("/ron/img/ornament_8.png") no-repeat top right;
-    height: 560px;
+    min-height: 560px;
 }
 
+.news .gal-item a {
+    display: block;
+}
+
+.news .gal-item img {
+    border: solid 4px #ffffff;
+}
+
+.news .gal-item img.active,
+.news .gal-item img:hover {
+    border: solid 4px #a42e36;
+}
+
+.news .main {
+    border: 1px solid #a42e36;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.news .main div {
+    border: 5px solid #a42e36;
+}
+
+.news .main .image {
+    max-width: 310px;
+    min-height: 100px;
+}
+
+@media (min-width: 768px) {
+    .news .main .image {
+        max-width: 426px;
+    }
+}
+
+@media (min-width: 992px) {
+    .news .main .image {
+        max-width: 342px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .news .main .image {
+        max-width: 426px;
+    }
+}
+
+.news .main .loading {
+    width: 93%;
+    height: 70%;
+}
+
+.news .thumbnails {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.news .thumbnails .image {
+    width: 98px;
+    height: 98px;
+}

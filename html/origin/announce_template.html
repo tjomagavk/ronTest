@@ -1,7 +1,6 @@
 <html>
 [[$Head]]
 <body>
-
 [[$Header]]
 
 
@@ -17,20 +16,43 @@
                 <img class="hidden-xs" src="/ron/img/ornament_5.png">
             </div>
             <div class="row content">
-                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-                    <img title="Гастрономическое шоу на выставке ПродЭкспо"
-                         src="[[*newsMainImage:phpthumbof=`w=285&h=205&zc=1`]]" >
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-                    <div class="row">
-                        <span class="font-weight-700">[[*publishedon:strtotime:date=`%d`]] [[*publishedon:strtotime:date=`%b`]] [[*publishedon:strtotime:date=`%Y`]]</span>
+                [[!Gallery?
+                &album=`[[*gallery]]`
+                &checkForRequestTagVar=`1`
+                &toPlaceholder=`Gallery`
+                &useCss=`0`
+                &thumbWidth=`90`
+                &thumbHeight=`90`
+                &thumbQuality=`100`
+                &thumbTpl=`Gallery.Item.Thumbnail`
+                &imageWidth=`425`
+                &imageHeight=`425`]]
+                [[!If? &subject=`[[+Gallery]]` &operator=`isempty` &then=`
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    ` &else=`
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main text-center">
+                            <div>
+                                <b class="loading"></b>
+                                <img src="" alt="" class="image"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 thumbnails  text-center">
+                            [[+Gallery]]
+                        </div>
                     </div>
-                    <div class="row">
-                        [[*content]]
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                        `]]
+                        <div class="row">
+                            <span class="font-weight-700">[[*publishedon:strtotime:date=`%d`]] [[*publishedon:strtotime:date=`%b`]] [[*publishedon:strtotime:date=`%Y`]]</span>
+                        </div>
+                        <div class="row">
+                            [[*content]]
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 

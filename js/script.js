@@ -16,6 +16,20 @@ $(document).ready(function () {
         changePasswordModal.modal();
     }
 
+    $("img").lazyload({effect: "fadeIn"});
+    var thumbnails = $('.thumbnails a').first();
+    var mainImg = $(".main img");
+    mainImg.attr('src', thumbnails.prop('href'));
+    mainImg.attr('alt', thumbnails.find('img').prop('alt'));
+    thumbnails.find('img').addClass('active');
+    $(document).on('click', '.thumbnails a', function () {
+        mainImg.attr('src', $(this).prop('href'));
+        mainImg.attr('alt', $(this).find('img').prop('alt'));
+        $('.thumbnails a img').removeClass('active');
+        $(this).find('img').addClass('active');
+        return false;
+    });
+
     if (isMobile) {
         $("header.desktop").remove();
         $("header.mobile").css({'display': 'block'});
@@ -175,4 +189,16 @@ $(document).ready(function () {
     if (loc) {
         $(document).find(".changeNews li a[href$='" + loc + "']").click();
     }
+});
+
+/**
+ * Значек загрузки картинок для галлереии
+ */
+$(function () {
+    if (navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/trident/i)) {
+        $('.loading').hide();
+    }
+    $('.image').load(function () {
+        $(this).parent().find(".loading").hide();
+    });
 });

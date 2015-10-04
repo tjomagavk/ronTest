@@ -1,91 +1,23 @@
-<p>Поля, отмеченные (<span class="error">*</span>) - обязательны к заполнению!</p>
-<p>[[!Register? &submitVar=`registerbtn` &activationEmailTpl=`userLgnActivateEmailTpl` &activationEmailSubject=`Спасибо
-    за регистрацию в клубе РОН!` &usergroups=`Пользователи::Member` &activationResourceId=`50`
-    &submittedResourceId=`49`]]</p>
-<div class="register">
-    <div class="registerMessage">[[+error.message]]</div>
-    <form class="form" action="[[~[[*id]]]]" method="post">
-
-        <input type="hidden" name="nospam:blank" value=""/>
-
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="username">[[%register.username? &namespace=`login` &topic=`register`]]</label>
-                <span class="error">*</span>
-                <input id="username" class="form-control" type="text" name="username:required:minLength=3"
-                       value="[[+username]]"/>
-                <span class="error">[[+error.username]]</span>
-            </div>
-            <div class="form-group">
-                <label for="fullname">[[%register.fullname]] * </label>
-                <input id="fullname" class="form-control" type="text"
-                       name="fullname"
-                       value="[[+fullname]]"/>
-                <span class="error">[[+error.username]]</span>
-            </div>
-            <div class="form-group">
-                <label for="password">[[%register.password]]</label>
-                <span class="error">*</span>
-                <input id="password" class="form-control" type="password" name="password:required:minLength=6"
-                       value="[[+password]]"/>
-                <span class="error">[[+error.password]]</span>
-            </div>
-            <div class="form-group">
-                <label for="password_confirm">[[%register.password_confirm]]</label>
-                <span class="error">*</span>
-                <input id="password_confirm" class="form-control" type="password"
-                       name="password_confirm:password_confirm=`password`"
-                       value="[[+password_confirm]]"/>
-                <span class="error">[[+error.password_confirm]]</span>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="email">[[%register.email]]</label>
-                <span class="error">*</span>
-                <input id="email" class="form-control" type="email" name="email:email" value="[[+email]]"/>
-                <span class="error">[[+error.email]]</span>
-            </div>
-            <div class="form-group">
-                <label for="dob">Дата рождения</label>
-                <span class="error">*</span>
-
-                <div class='input-group date' id='datetimepicker2'>
-                    <input id="dob" type='text' class="form-control" name="dob:required:date=`%Y-%m-%D`"
-                           value="[[+dob:date=`%Y-%m-%D`]]"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-                <span class="error">[[+error.dob]]</span>
-                <script type="text/javascript">
-                    $(function () {
-                        $('#datetimepicker2').datetimepicker({
-                            locale: 'ru',
-                            format: 'DD-MM-YYYY'
-                        });
-                    });
-                </script>
-            </div>
-            <div class="form-group">
-                <label for="city">Город</label>
-                <span class="error">*</span>
-                <input id="city" class="form-control" type="text" name="city:required" value="[[+city]]"/>
-                <span class="error">[[+error.city]]</span>
-            </div>
-            <div class="form-group">
-                <label for="gender">Пол</label>
-                <span class="error">*</span>
-                <select id="gender" name="gender:required" class="form-control">
-                    <option>[[+gender]]</option>
-                    <option value="1">Мужской</option>
-                    <option value="2">Женский</option>
-                </select>
-                <span class="error">[[+error.gender]]</span>
-            </div>
-        </div>
-        <div class="form-group">
-            <input class="btn btn-danger form-control" type="submit" name="registerbtn" value="Вступить в клуб"/>
-        </div>
-    </form>
-</div>
+[[!GalleryAlbums?
+&toPlaceholder=`GalleryAlbums`
+&limit=`0`
+&albumCoverSort=`rank`
+&prominentOnly=`0`
+&rowTpl=`DemoGalAlbumRowTpl`
+&thumbWidth=`195`
+&thumbHeight=`140`]]
+[[!Gallery?
+&checkForRequestTagVar=`1`
+&toPlaceholder=`Gallery`
+&useCss=`0`
+&containerTpl=`DemoGalleryAlbumTpl`
+&thumbWidth=`195`
+&thumbHeight=`140`
+&thumbTpl=`DemoGalItemThumb`
+&imageWidth=`800`
+&imageHeight=`800`]]
+[[!If? &subject=`[[+Gallery]]` &operator=`isempty` &then=`
+[[+GalleryAlbums]]
+` &else=`
+[[+Gallery]]
+`]]
