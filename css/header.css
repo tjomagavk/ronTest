@@ -17,6 +17,10 @@ header.desktop {
     width: 100%;
 }
 
+header.desktop ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
+
 header.header-collapse {
     position: fixed;
     line-height: 48px;
@@ -223,4 +227,8 @@ header .menu-language li .active div {
 header .menu-language li .active p {
     padding-top: 21px;
     padding-left: 1px;
+}
+
+#login .registerLink a span {
+    border-bottom: 1px dashed;
 }
