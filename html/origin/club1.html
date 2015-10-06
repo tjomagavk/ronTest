@@ -41,58 +41,106 @@
 
     <noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/32699025" style="position:absolute; left:-9999px;"
         alt="" /&gt;&lt;/div&gt;</noscript>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Русские Оригинальные Напитки - События</title>
     <base href="http://test.tjomagavk.ru/">
+
+    <script type="text/javascript">
+        ymaps.ready(contactMapInit);
+        var myMap, myPlacemark;
+
+        function contactMapInit() {
+            myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 10,
+                // Карта будет создана без элементов управления.
+                controls: []
+            });
+
+            myPlacemark = new ymaps.Placemark([55.848291, 37.619791], {}, {
+                iconLayout: 'default#image',
+                iconImageHref: '/ron/img/button_map_1.png',
+                iconImageSize: [27, 42],
+                iconImageOffset: [-27, -40]
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
+
 </head>
 <body>
-
 <div class="row section-main">
     <section class="first">
-        <div class="container">
-
+        <div class="container contact">
             <div class="row">
-                <h2>
-                    <span> Гастрономическое шоу на выставке ПродЭкспо</span>
-                </h2>
-                <img class="hidden-xs" src="/ron/img/ornament_5.png">
-                <img class="hidden-xs" src="/ron/img/ornament_5.png">
-                <img class="hidden-xs" src="/ron/img/ornament_5.png">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 info">
+                    <h2>
+                        <span class="text-uppercase font-weight-700">Контакты</span>
+                    </h2>
+                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
+                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
+                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
+
+                    <div class="row">
+                        <span class="ron-color-light-gray">ООО "Ар-Ви-Ай Трейд" - официальный дистрибьютор "Деревенского самогона" в РФ.</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <img class="" src="/ron/img/button_map_1.png">
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                            <span class="font-weight-700">Головной офис в Москве:</span><br/>
+                            <a>
+                                <span class="ron-color map-coord">127273, г. Москва, Березовая аллея, д. 5А, стр. 5</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <img class="" src="/ron/img/button_map_1.png">
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                            <span class="font-weight-700">Оптовый склад в Москве:</span><br/>
+                            <a>
+                                <span class="ron-color map-coord">127273, г. Москва, Березовая аллея, д. 5А, стр. 5</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 maps">
+                    <div class="" id="map"></div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-                    <a href="новости,-анонсы-и-тд/анонсы/гастрономическое-шоу-на-выставке-продэкспо.html">
-                        <img class="img-circle" title="Гастрономическое шоу на выставке ПродЭкспо"
-                             src="newsImg/800x800x85_ce3ff8df4628a215317e476873594d07.jpg" alt="" width="140"
-                             height="140">
-                    </a>
+                <div class="hidden-xs hidden-sm col-md-3 col-lg-3 spica">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-                    <div class="row">
-                        <span class="badge">26.02.2014</span>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <span class="ron-color-light-gray">Телефон:</span><br/>
+                        <span class="ron-color-dark-gray font-weight-700">+7 (499) 995-08-97</span>
                     </div>
-                    <div class="row">
-                        <p>Одной из главных изюминок недавно завершившейся выставки ПродЭкспо 2014 стало
-                            гастрономическое шоу,
-                            которое ежедневно устраивали на стенде «Деревенского самогона» повара из кулинарного театра
-                            Teatro
-                            del Gusto. Посетителям стенда предлагалось попробовать самогон с традиционными русскими
-                            закусками,
-                            выполненными на современный лад. Среди закусок были, например, канапе из тончайших кусков
-                            сала и
-                            бородинского хлеба и строганина из муксуна. Для многих такое нестандартное исполнение
-                            традиционных
-                            блюд стало откровением. Каждый из вас пробовал сало с бородинским хлебом, но не многие бы
-                            узнали
-                            вкус, если бы попробовали это же блюдо в виде канапе.</p>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <span class="ron-color-light-gray">Факс:</span><br/>
+                        <span class="ron-color-dark-gray font-weight-700">+7 (499) 995-08-97</span>
                     </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <span class="ron-color-light-gray">Email:</span><br/>
+                        <a href="mailto:info@derevenski-samogon.com" class="email">
+                            <span class="ron-color">info@derevenski-samogon.com</span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 </div>
+
 
 </body>
 </html>
