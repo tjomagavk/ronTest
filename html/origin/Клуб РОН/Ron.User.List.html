@@ -1,0 +1,104 @@
+[[!pdoPage?
+&element=`pdoUsers`
+&tpl=`Ron.User.List.Row`
+&groups=`Члены клуба`
+&toPlaceholder=`users`
+&limit=`20`
+&where=`[[!Ron.User.List.Filter]]`
+&sortby=`fullname`
+&hideContainers=`1`
+&pageLimit=`7`
+&wrapper=`tpl.ajax`
+]]
+[[!Ron.User.List.Filter]]
+<table class="table table-hover">
+    <thead>
+    <tr class="text-center">
+        <th><input type="text" class="input-default" placeholder="Имя пользователя"
+                   onchange="insertUrlParam('fullname', this.value)" value="[[!Ajax.Get.Uri? &param=`fullname`]]"></th>
+        <th>Логин</th>
+        <th><input type="text" class="input-default" placeholder="Email" onchange="insertUrlParam('email', this.value)"
+                   value="[[!Ajax.Get.Uri? &param=`email`]]">
+        </th>
+        <th><input type="text" class="input-default" placeholder="Номер карты"
+                   onchange="insertUrlParam('cardnumber', this.value)"
+                   value="[[!Ajax.Get.Uri? &param=`cardnumber`]]"></th>
+        <th>
+            <select class="form-control" name="statusMember" id="statusMember" title="Статус"
+                    onchange="insertUrlParam('statusMember',this.value)">
+                <option value="">Все статусы</option>
+                <option value="Copper1" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Copper1` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Copper1`]]
+                </option>
+                <option value="Copper2" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Copper2` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Copper2`]]
+                </option>
+                <option value="Silver1" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Silver1` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Silver1`]]
+                </option>
+                <option value="Silver2" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Silver2` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Silver2`]]
+                </option>
+                <option value="Platinum1" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Platinum1` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Platinum1`]]
+                </option>
+                <option value="Platinum2" [[!If? &subject=`[[!Ajax.Get.Uri? &param=`statusMember`]]` &operator=`equals`
+                        &operand=`Platinum2` &then=`selected`]]>[[Ron.User.Status.Text? &status=`Platinum2`]]
+                </option>
+            </select>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    [[+users]]
+    </tbody>
+</table>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    [[!+page.nav]]
+</div>
+
+<div id="userStatusModal" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close ron-color-light" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title ron-color-light">Данные пользователя</h4>
+            </div>
+            <div class="modal-body" id="userStatusModalContent">
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden">
+        [[!AjaxForm?
+        &snippet=`UpdateProfile`
+        &form=`Profile.Admin.Edit.Status`
+        &submitVar=`edit-profile`
+        &postHooks=`Ron.Registration.Back.PostHook`
+        &reloadOnSuccess=`1`
+        &validationErrorMessage=`В форме содержатся ошибки!`
+        &successMessage=`Сообщение успешно отправлено`
+        ]]
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    function loadUserData(id) {
+        $("#userStatusModal").modal();
+        $("#userStatusModalContent").addClass("loading");
+        $.ajax({
+            type: "post",
+            url: '[[~94]]',
+            data: {user: id},
+            success: function (data) {
+                $("#userStatusModalContent").removeClass("loading");
+                $('#userStatusModalContent').html(data);
+            }
+        });
+    }
+
+
+</script>

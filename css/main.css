@@ -2,6 +2,10 @@ body {
     font-size: 12pt;
 }
 
+body.loading {
+    background-size: cover;
+}
+
 section.first {
     margin-top: 185px;
 }
@@ -129,7 +133,7 @@ section a:focus, section a:hover {
     text-decoration: none;
 }
 
-.email span{
+.email span {
     border-bottom: 1px solid;
 }
 
@@ -148,7 +152,7 @@ section a:focus, section a:hover {
     margin-top: 50px;
 }
 
-.contact .spica{
+.contact .spica {
     background: url("/ron/img/spica.png") no-repeat top left;
     height: 185px;
     margin-top: -135px;
@@ -329,6 +333,12 @@ input[disabled] {
 input[readonly] {
     background-color: white !important;
     cursor: text !important;
+}
+
+/* инпуты по умолчанию*/
+input.input-default {
+    border-radius: 0;
+    border: 2px inset;
 }
 
 /* стилизация радио */

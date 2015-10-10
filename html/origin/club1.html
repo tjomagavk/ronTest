@@ -1,146 +1,98 @@
-<html>
-<head>
-    <base href="http://test.tjomagavk.ru/">
-    <!-- Jquery -->
-    <script src="../../../ron/js/jquery/jquery-2.1.4.min.js"></script>
-    <script src="../../../ron/js/jquery/jquery.lazyload.min.js"></script>
-    <script src="../../../ron/js/jquery/jquery.colorbox-min.js"></script>
+[[!UpdateProfile? &user=`[[Ajax.Post.User]]` &submitVar=`edit-profile`]]
 
-    <script src="../../../ron/js/moment.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="../../../ron/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link href="../../../ron/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap DatePicker -->
-    <script src="../../../ron/bootstrap-datetimepicker-4.17.37-dist/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../../../ron/bootstrap-datetimepicker-4.17.37-dist/js/ru.js"></script>
-    <link href="../../../ron/bootstrap-datetimepicker-4.17.37-dist/css/bootstrap-datetimepicker.min.css"
-          rel="stylesheet">
-
-    <!-- Pictonic -->
-    <link rel="stylesheet" href="../../../ron/pictonic/css/pictonic.css">
-    <!--[if lt IE 8]>
-    <script src="../../../ron/pictonic/js/pictonic.min.js"></script><![endif]-->
-
-    <link href="../../../ron/css/header.css" rel="stylesheet">
-    <link href="../../../ron/css/headerMobile.css" rel="stylesheet">
-    <link href="../../../ron/css/slider.css" rel="stylesheet">
-    <link href="../../../ron/css/main.css" rel="stylesheet">
-    <link href="../../../ron/css/announce.css" rel="stylesheet">
-    <link href="../../../ron/css/main.css" rel="stylesheet">
-    <link href="../../../ron/css/club.css" rel="stylesheet">
-    <link href="../../../ron/css/registration.css" rel="stylesheet">
-    <link href="../../../ron/css/footer.css" rel="stylesheet">
-
-    <script src="../../../ron/js/header.js"></script>
-    <script src="../../../ron/js/slider.js"></script>
-    <script src="../../../ron/js/script.js"></script>
-    <script src="../../../ron/js/global.js"></script>
-    <script src="../../../ron/club/resources/js/card.js"></script>
-
-    <noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/32699025" style="position:absolute; left:-9999px;"
-        alt="" /&gt;&lt;/div&gt;</noscript>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>Русские Оригинальные Напитки - События</title>
-    <base href="http://test.tjomagavk.ru/">
-
-    <script type="text/javascript">
-        ymaps.ready(contactMapInit);
-        var myMap, myPlacemark;
-
-        function contactMapInit() {
-            myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64],
-                zoom: 10,
-                // Карта будет создана без элементов управления.
-                controls: []
-            });
-
-            myPlacemark = new ymaps.Placemark([55.848291, 37.619791], {}, {
-                iconLayout: 'default#image',
-                iconImageHref: '/ron/img/button_map_1.png',
-                iconImageSize: [27, 42],
-                iconImageOffset: [-27, -40]
-            });
-
-            myMap.geoObjects.add(myPlacemark);
-        }
-    </script>
-
-</head>
-<body>
-<div class="row section-main">
-    <section class="first">
-        <div class="container contact">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 info">
-                    <h2>
-                        <span class="text-uppercase font-weight-700">Контакты</span>
-                    </h2>
-                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
-                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
-                    <img class="hidden-xs" src="/ron/img/ornament_5.png">
-
-                    <div class="row">
-                        <span class="ron-color-light-gray">ООО "Ар-Ви-Ай Трейд" - официальный дистрибьютор "Деревенского самогона" в РФ.</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <img class="" src="/ron/img/button_map_1.png">
-                        </div>
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                            <span class="font-weight-700">Головной офис в Москве:</span><br/>
-                            <a>
-                                <span class="ron-color map-coord">127273, г. Москва, Березовая аллея, д. 5А, стр. 5</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <img class="" src="/ron/img/button_map_1.png">
-                        </div>
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                            <span class="font-weight-700">Оптовый склад в Москве:</span><br/>
-                            <a>
-                                <span class="ron-color map-coord">127273, г. Москва, Березовая аллея, д. 5А, стр. 5</span>
-                            </a>
-                        </div>
-                    </div>
-
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+    <div class="row first">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+            <h3 class="font-weight-700">Текущий статус: <br/>
+                <span class="ron-color text-uppercase">[[!Ron.User.Status.Text? &status=`[[+statusMember]]`]]</span>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            <h3 class="font-weight-700">Персональные данные: </h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Имя, фамилия: </label>
+                    <input class="form-control " type="text" value="[[+fullname]]" disabled title=""/>
                 </div>
-                <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 maps">
-                    <div class="" id="map"></div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input class="form-control " type="text" value="[[+email]]" disabled title=""/>
+                </div>
+                <div class="form-group">
+                    <label> Дата рождения: </label>
+                    <input class="form-control " type="text" value="[[+dob:date=`%d.%m.%Y`]]" disabled title="">
                 </div>
             </div>
-            <div class="row">
-                <div class="hidden-xs hidden-sm col-md-3 col-lg-3 spica">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Пол: </label>
+                    <input class="form-control " type="text"
+                           value="[[+gender:is=`0`:then=`Не указан`]][[+gender:is=`1`:then=`Мужской`]][[+gender:is=`2`:then=`Женский`]]"
+                           disabled title=""/>
                 </div>
-                <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <span class="ron-color-light-gray">Телефон:</span><br/>
-                        <span class="ron-color-dark-gray font-weight-700">+7 (499) 995-08-97</span>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <span class="ron-color-light-gray">Факс:</span><br/>
-                        <span class="ron-color-dark-gray font-weight-700">+7 (499) 995-08-97</span>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <span class="ron-color-light-gray">Email:</span><br/>
-                        <a href="mailto:info@derevenski-samogon.com" class="email">
-                            <span class="ron-color">info@derevenski-samogon.com</span>
-                        </a>
-                    </div>
-
+                <div class="form-group">
+                    <label>Город: </label>
+                    <input class="form-control " type="text" value="[[+city]]" disabled title=""/>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center">
+            <div>
+                <img src="[[+photo:phpthumbof=`w=231&h=205`]]" alt="Фотография">
+            </div>
+
+        </div>
+    </div>
+    <div class="row text-center end">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        </div>
+    </div>
 </div>
 
-
-</body>
-</html>
+[[+message]]
+<form action="[[~[[*id]]]]" method="post">
+    <div class="form-group">
+        <h3>
+            <label for="statusMember">Новый статус</label>
+            <select class="form-control" name="statusMember:required" id="statusMember">
+                <option value="Copper1" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Copper1`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Copper1`]]
+                </option>
+                <option value="Copper2" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Copper2`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Copper2`]]
+                </option>
+                <option value="Silver1" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Silver1`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Silver1`]]
+                </option>
+                <option value="Silver2" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Silver2`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Silver2`]]
+                </option>
+                <option value="Platinum1" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Platinum1`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Platinum1`]]
+                </option>
+                <option value="Platinum2" [[!If? &subject=`[[+statusMember]]` &operator=`equals` &operand=`Platinum2`
+                        &then=`selected`]]>[[Ron.User.Status.Text? &status=`Platinum2`]]
+                </option>
+            </select>
+        </h3>
+        [[+error.statusMember]]
+        <div class="form-group">
+            <div class="text-center">
+                <div class="ron-club-submit">
+                    <input type="submit" class="btn btn-ron-club text-uppercase" name="edit-profile"
+                           value="Изменить статус"
+                           formmethod="post"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

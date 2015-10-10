@@ -207,15 +207,18 @@
     font-size: 12pt;
 }
 
-.icon.statusPlatinum1 {
+.icon.statusPlatinum1,
+.icon.statusPlatinum2 {
     background: #E5E4E2 linear-gradient(to top right, #E5E4E2 0%, #484848 36%, #a1a1a0 100%);
 }
 
-.icon.statusSilver1 {
+.icon.statusSilver1,
+.icon.statusSilver2 {
     background: #484848 linear-gradient(to top right, #E5E4E2 0%, #a1a1a0 36%, #484848 100%);
 }
 
-.icon.statusCopper1 {
+.icon.statusCopper1,
+.icon.statusCopper2 {
     background: #8E402A linear-gradient(to top right, #d26b53 0%, #a45e4b 36%, #8E402A 100%);
 }
 
