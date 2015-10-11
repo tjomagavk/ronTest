@@ -10,29 +10,69 @@ if (!$user) return 'user';
 $profile = $user->getOne('Profile');
 if (!$profile) return 'Profile';
 
-$userArray = array_merge($user->toArray(), $profile->toArray());
-
 $hostUrl = 'http://' . $_SERVER['SERVER_NAME'];
 
-
-$individualCod = generateCode($userId);
+$individualCod = generateCode($profile, $modx);
 $fullNameTranslate = transliterate($fullName);
 $dirClub = "./ron";
 
-//echo $img . '<br/>';
+$fullName = $profile->get('fullname');
+$from = "info@r-o-n.ru";
+$to = $profile->get('email');
+$subject = "Клуб РОН, Индивидуальная скидка";
+$attachImage = newCard($individualCod, $profile, $dirClub);
+$shops = '
+<table class="table table-hover" style="width: 100%">
+            <thead>
+            <tr class="text-center" style="text-align: center">
+                <th>Название</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>Часы работы</th>
+            </tr>
+            </thead>
+           <tbody>';
 
-$message;
-if (!newCard($individualCod, $profile, $dirClub)) {
+$params['parents'] = $parents;
+$params['depth'] = 0;
+$params['tpl'] = $tpl;
+$params['includeTVs'] = $includeTVs;
+$shops .= $modx->runSnippet('pdoResources', $params);
+$shops .= '</tbody></table>';
+
+$mailBody = '
+    <p>' . $fullName . ', Ваша персональная скидка – во вложении к этому письму.</p>
+<p>Сохраните купон на смартфоне или распечатайте и вместе со своей клубной картой предъявите на кассе в момент
+    покупки.</p>
+<p>На сегодня партнером Клуба, предоставляющим скидки, является сеть магазинов «Массандра – Легенда Крыма».</p>
+<p>Купон на скидку действует в течение текущего календарного месяца.</p>
+<p>Обратите внимание - скидка действует только на продукцию нашей компании и не распространяется на остальной
+    ассортимент магазина!</p>
+<p>Перечень магазинов, в которых Вы можете приобрести продукцию нашей компании со скидкой:</p>
+' . $shops . '
+<p>С уважением,<br/><em>«Русские Оригинальные Напитки».</em></p>
+';
+
+$modx->getService('mail', 'mail.modPHPMailer');
+$modx->mail->set(modMail::MAIL_BODY, $mailBody);
+$modx->mail->set(modMail::MAIL_FROM, 'info@r-o-n.ru');
+$modx->mail->set(modMail::MAIL_FROM_NAME, '«Русские Оригинальные Напитки»');
+$modx->mail->set(modMail::MAIL_SUBJECT, $subject);
+$modx->mail->address('to', $to);
+$modx->mail->setHTML(true);
+$modx->mail->attach($attachImage);
+if (!$modx->mail->send()) {
+    $modx->log(modX::LOG_LEVEL_ERROR, 'An error occurred while trying to send the email: ' . $modx->mail->mailer->ErrorInfo);
     $message = 'Ошибка отправки';
 }
+$modx->mail->reset();
+
 return $message;
 
 exit;
 
 function newCard($individualCod, $profile, $dirClub)
 {
-    $fullName = $profile->get('fullname');
-    $email = $profile->get('email');
     $discountImage = '';
     $statusMember = $profile->get('extended')['statusMember'];
     if (strstr($statusMember, 'Copper')) {
@@ -71,12 +111,12 @@ function newCard($individualCod, $profile, $dirClub)
     $black = 0xf8f0e3; //цвет заливки фона
     $gold = 0x9a4c00; //цвет заливки фона
 
-    imagefttext($mainImg, 28, 0, 282, 477, $black, $font, $individualCod);
-    imagefttext($mainImg, 28, 0, 282, 473, $black, $font, $individualCod);
-    imagefttext($mainImg, 28, 0, 284, 475, $black, $font, $individualCod);
-    imagefttext($mainImg, 28, 0, 280, 475, $black, $font, $individualCod);
+    imagefttext($mainImg, 28, 0, 132, 477, $black, $font, $individualCod);
+    imagefttext($mainImg, 28, 0, 132, 473, $black, $font, $individualCod);
+    imagefttext($mainImg, 28, 0, 134, 475, $black, $font, $individualCod);
+    imagefttext($mainImg, 28, 0, 130, 475, $black, $font, $individualCod);
 
-    imagefttext($mainImg, 28, 0, 280, 475, $gray, $font, $individualCod);
+    imagefttext($mainImg, 28, 0, 130, 475, $gray, $font, $individualCod);
 //    imagefttext($mainImg, 20, 0, 52, 402, $black, $font, $fullName);
 //    imagefttext($mainImg, 20, 0, 50, 400, $gray, $font, $fullName);
 //    header('Content-Type: image/png');
@@ -94,102 +134,20 @@ function newCard($individualCod, $profile, $dirClub)
     $func($mainImg, $pathForReady . $imgReady, 100);
 //    imagepng($mainImg);
     imagedestroy($mainImg);
-    return sendMail($pathForReady . $imgReady, $email, $fullName);
+    return $pathForReady . $imgReady;
 }
-
-function sendMail($mainImg, $email, $fullName)
-{
-    // картинки
-    $attach = array($mainImg);
-// чтобы отображалась картинка и ее не было в аттаче
-// путь к картинке задается через CID: - Content-ID
-// тестовый текст
-    $text = '
-    <p>' . $fullName . ', Ваша персональная скидка – во вложении к этому письму.</p>
-<p>Сохраните купон на смартфоне или распечатайте и вместе со своей клубной картой предъявите на кассе в момент
-    покупки.</p>
-<p>На сегодня партнером Клуба, предоставляющим скидки, является сеть магазинов «Массандра – Легенда Крыма».</p>
-<p>Купон на скидку действует в течение текущего календарного месяца.</p>
-<p>Обратите внимание - скидка действует только на продукцию нашей компании и не распространяется на остальной
-    ассортимент магазина!</p>
-<p>Перечень магазинов, в которых Вы можете приобрести продукцию нашей компании со скидкой:</p>
-<p>- Крымские вина на Планерной<br /> Адрес: ул. Планерная, д.5, корп.1<br /> Тел.: (499) 740 30 01<br /> работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра Черемушки<br /> Адрес: ул. Новочеремушкинская, д.15/29<br /> Тел.: (499) 129 91 94<br /> работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра Строгино<br /> Адрес: Строгинский б-р 7, корп.1.<br /> Тел.: (495) 758 86 02<br /> работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра Ленинский<br /> Адрес: Ленинский проспект, д. 64/2<br /> Тел.: (499) 137 30 07<br /> Магазин работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра Алтуфьево<br /> Адрес: ул. Лескова, д.6<br /> Тел.: (499) 909 40 08<br /> работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра<br /> Адрес: ул. Октябрьская д.5<br /> Тел.: (495) 684 57 57<br /> работает с 10 до 23, без перерывов и выходных.</p>
-<p>- Крымские вина<br /> Адрес: Звенигородское ш., д. 7<br /> Тел.: (499) 256 80 11<br /> Магазин работает с 10 до 22, без перерывов и выходных.</p>
-<p>- Массандра<br /> Адрес: ул. 3-я Парковая, д. 26/2<br /> Тел.: (499) 165 62 27<br /> Магазин работает с 10 до 22, без перерывов и выходных.</p>
-<p>С уважением,<br/><em>«Русские Оригинальные Напитки».</em></p>
-';
-
-    $from = "info@r-o-n.ru";
-    $to = $email;
-    $subject = "Клуб РОН, Индивидуальная скидка";
-
-// Заголовки письма === >>>
-    $headers = "From: $from\r\n";
-//$headers .= "To: $to\r\n";
-    $headers .= "Subject: $subject\r\n";
-    $headers .= "Date: " . date("r") . "\r\n";
-    $headers .= "X-Mailer: zm php script\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: multipart/alternative;\r\n";
-    $baseboundary = "------------" . strtoupper(md5(uniqid(rand(), true)));
-    $headers .= "  boundary=\"$baseboundary\"\r\n";
-// <<< ====================
-
-// Тело письма === >>>
-    $message = "--$baseboundary\r\n";
-    $message .= "Content-Type: text/plain;\r\n";
-    $message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    $message .= "--$baseboundary\r\n";
-    $newboundary = "------------" . strtoupper(md5(uniqid(rand(), true)));
-    $message .= "Content-Type: multipart/related;\r\n";
-    $message .= "  boundary=\"$newboundary\"\r\n\r\n\r\n";
-    $message .= "--$newboundary\r\n";
-    $message .= "Content-Type: text/html; charset=utf-8\r\n";
-    $message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    $message .= $text . "\r\n\r\n";
-// <<< ==============
-// прикрепляем файлы ===>>>
-    foreach ($attach as $filename) {
-        $mimeType = 'image/png';
-        $fileContent = file_get_contents($filename, true);
-        $filename = basename($filename);
-        $message .= "--$newboundary\r\n";
-        $message .= "Content-Type: $mimeType;\r\n";
-        $message .= " name=\"$filename\"\r\n";
-        $message .= "Content-Transfer-Encoding: base64\r\n";
-        $message .= "Content-ID: <$filename>\r\n";
-        $message .= "Content-Disposition: inline;\r\n";
-        $message .= " filename=\"$filename\"\r\n\r\n";
-        $message .= chunk_split(base64_encode($fileContent));
-    }
-// <<< ====================
-
-// заканчиваем тело письма, дописываем разделители
-    $message .= "--$newboundary--\r\n\r\n";
-    $message .= "--$baseboundary--\r\n";
-
-// отправка письма
-    return mail($to, $subject, $message, $headers);
-//    var_dump($result);
-}
-
 
 function transliterate($input)
 {
     $gost = array(
-        "Є" => "YE", "І" => "I", "Ѓ" => "G", "і" => "i", "№" => "-", "є" => "ye", "ѓ" => "g",
+        "Є" => "Ye", "І" => "I", "Ѓ" => "G", "і" => "i", "№" => "-", "є" => "ye", "ѓ" => "g",
         "А" => "A", "Б" => "B", "В" => "V", "Г" => "G", "Д" => "D",
-        "Е" => "E", "Ё" => "YO", "Ж" => "ZH",
+        "Е" => "E", "Ё" => "Yo", "Ж" => "Zh",
         "З" => "Z", "И" => "I", "Й" => "J", "К" => "K", "Л" => "L",
         "М" => "M", "Н" => "N", "О" => "O", "П" => "P", "Р" => "R",
         "С" => "S", "Т" => "T", "У" => "U", "Ф" => "F", "Х" => "X",
-        "Ц" => "C", "Ч" => "CH", "Ш" => "SH", "Щ" => "SHH", "Ъ" => "'",
-        "Ы" => "Y", "Ь" => "", "Э" => "E", "Ю" => "YU", "Я" => "YA",
+        "Ц" => "C", "Ч" => "Ch", "Ш" => "Sh", "Щ" => "Shch", "Ъ" => "'",
+        "Ы" => "Y", "Ь" => "", "Э" => "E", "Ю" => "Yu", "Я" => "YA",
         "а" => "a", "б" => "b", "в" => "v", "г" => "g", "д" => "d",
         "е" => "e", "ё" => "yo", "ж" => "zh",
         "з" => "z", "и" => "i", "й" => "j", "к" => "k", "л" => "l",
@@ -204,49 +162,29 @@ function transliterate($input)
 
 /**
  * Создаем индивидуальный код на карту:
- * первые 4 цифры - год рождения
- * вторые 4 цифры - текущий год
- * третьи 4 цифры - случайные
- * четвертые 4 цифры - месяц, день роджения
- * @param $dob
+ * @param $profile
  * @return string
  */
-function generateCodeByBirthDate($dob)
+function generateCode($profile, $modx)
 {
-    $first = strrev(date("Y", strtotime($dob)));
-    $second = strrev(date("Y"));
-    $third = rand(1000, 9999);
-    $fourth = strrev(date("md", strtotime($dob)));
-    return $first . " " . $second . " " . $third . " " . $fourth;
+    $dob = $profile->get('dob');
+    $discountSizeStr = '00';
+    $statusMember = $profile->get('extended')['statusMember'];
+    if (strstr($statusMember, 'Copper')) {
+        $discountSizeStr = '10';
+    } else if (strstr($statusMember, 'Silver')) {
+        $discountSizeStr = '15';
+    } else if (strstr($statusMember, 'Platinum')) {
+        $discountSizeStr = '20';
+    }
+    $dobStr = date("Ym", $dob);
+    $todayStr = date('Ym');
+    $params['id'] = $profile->get('id');
+
+    $cardNumber = $modx->runSnippet('Ron.User.CardNumber', $params) . '';
+    $result = $todayStr[0] . $cardNumber[0] . $dobStr[0] . $todayStr[1] . $dobStr[1] . '-'
+        . $todayStr[2] . $cardNumber[1] . $dobStr[2] . $todayStr[3] . $discountSizeStr[0] . '-'
+        . $dobStr[3] . $todayStr[4] . $cardNumber[2] . $dobStr[4] . $todayStr[5] . '-'
+        . $discountSizeStr[1] . $cardNumber[3] . $dobStr[5] . $cardNumber[4];
+    return $result;
 }
-
-/**
- * Создаем индивидуальный код на карту:
- * прибавляем к идентификатору определенное число
- * @param $id
- * @return string
- * @internal param $dob
- */
-function generateCode($id)
-{
-    $first = generateCodeById($id);
-    $second = rand(100, 999);;
-    $third = date("y") . date("m");
-    return $first . "-" . $second . $third;
-}
-
-/**
- * Создаем индивидуальный код на карту:
- * прибавляем к идентификатору определенное число
- * @param $id
- * @return string
- * @internal param $dob
- */
-function generateCodeById($id)
-{
-    $startNumber = "53500";
-    return intval($startNumber) + intval($id);
-}
-
-
-return true;
