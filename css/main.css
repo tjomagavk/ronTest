@@ -185,6 +185,64 @@ section a:focus, section a:hover {
     }
 }
 
+.column-2 {
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    columns: 1;
+    /*-webkit-column-rule: 1px solid #ccc;*/
+    /*-moz-column-rule: 1px solid #ccc;*/
+    /*column-rule: 1px solid #ccc;*/
+}
+
+@media (min-width: 768px) {
+    .column-2 {
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        columns: 2;
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+        /*-webkit-column-rule: 1px solid #ccc;*/
+        /*-moz-column-rule: 1px solid #ccc;*/
+        /*column-rule: 1px solid #ccc;*/
+    }
+}
+
+/* Бренды */
+.brands .container {
+    background: url(/ron/img/ornament_8.png) top right no-repeat;
+    min-height: 560px;
+}
+
+.brands .row {
+    margin-bottom: 50px;
+}
+
+.brands .link-assortment {
+    background-color: #8e3239;
+    padding: 15px 40px;
+    color: #f9f1f2;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.brands .link-assortment:focus,
+.brands .link-assortment:hover {
+    text-decoration: none;
+    background-color: #a42e36;
+    color: #f9f1f2;
+}
+
+.brands .project .main-image img {
+    max-width: 295px;
+}
+
+@media (min-width: 1200px) {
+    .brands .project .main-image img {
+        max-width: 350px;
+    }
+}
+
 /* Стилизация вкладок */
 .nav-tabs > li, .nav-pills > li {
     float: none;

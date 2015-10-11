@@ -34,18 +34,6 @@
     background: url("/ron/img/ornament_2.png") no-repeat top right;
 }
 
-.section-club-in .column-2 {
-    -webkit-columns: 460px 2;
-    -moz-columns: 460px 2;
-    columns: 460px 2;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
-    -webkit-column-rule: 1px solid #ccc;
-    -moz-column-rule: 1px solid #ccc;
-    column-rule: 1px solid #ccc;
-}
-
 /* блок акций */
 
 .section-club-action {
