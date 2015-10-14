@@ -233,3 +233,21 @@ function insertUrlParam(key, value) {
     //this will reload the page, it's likely better to store this until finished
     document.location.search = kvp.join('&');
 }
+/**
+ * Ajax-запрос к URL
+ * @param url
+ */
+function sendAjaxAction(url) {
+    $.ajax({
+        url: url,
+        data: {},
+        success: function (data) {
+            data = JSON.parse(data);
+            if (data.status) {
+                $.jGrowl(data.message, {theme: 'af-message-success'});
+            } else {
+                $.jGrowl(data.message, {theme: 'af-message-error'});
+            }
+        }
+    });
+}

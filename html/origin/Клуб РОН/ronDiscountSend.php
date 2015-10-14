@@ -1,6 +1,7 @@
 <?php
 $userId = (int)$modx->getOption('userId', $scriptProperties, false);
 $message = $modx->getOption('message', $scriptProperties, false);
+$status = 1;
 
 if (empty($userId)) return 'userId';
 
@@ -64,10 +65,12 @@ $modx->mail->attach($attachImage);
 if (!$modx->mail->send()) {
     $modx->log(modX::LOG_LEVEL_ERROR, 'An error occurred while trying to send the email: ' . $modx->mail->mailer->ErrorInfo);
     $message = 'Ошибка отправки';
+    $status = 0;
 }
 $modx->mail->reset();
 
-return $message;
+$result = array('status' => $status, 'message' => $message);
+return json_encode($result, JSON_UNESCAPED_UNICODE);
 
 exit;
 
@@ -120,6 +123,13 @@ function newCard($individualCod, $profile, $dirClub)
 //    imagefttext($mainImg, 20, 0, 52, 402, $black, $font, $fullName);
 //    imagefttext($mainImg, 20, 0, 50, 400, $gray, $font, $fullName);
 //    header('Content-Type: image/png');
+
+    imagefttext($mainImg, 24, 0, 7, 77, $black, $font, date('d.m.Y', strtotime('+3 day')));
+    imagefttext($mainImg, 24, 0, 7, 73, $black, $font, date('d.m.Y', strtotime('+3 day')));
+    imagefttext($mainImg, 24, 0, 9, 75, $black, $font, date('d.m.Y', strtotime('+3 day')));
+    imagefttext($mainImg, 24, 0, 5, 75, $black, $font, date('d.m.Y', strtotime('+3 day')));
+
+    imagefttext($mainImg, 24, 0, 5, 75, $gray, $font, date('d.m.Y', strtotime('+3 day')));
 
     $pathForReady = './assets/uploads/temp/';
 

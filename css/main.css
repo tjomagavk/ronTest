@@ -208,6 +208,19 @@ section a:focus, section a:hover {
     }
 }
 
+/* Сообщения от ajax */
+.af-message-success {
+    background-color: green !important;
+}
+
+.af-message-error {
+    background-color: brown !important;
+}
+
+.af-message-info {
+    background-color: black !important;
+}
+
 /* Бренды */
 .brands .container {
     background: url(/ron/img/ornament_8.png) top right no-repeat;
